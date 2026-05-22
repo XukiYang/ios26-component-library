@@ -1,10 +1,10 @@
 <template>
-  <div class="list-section">
-    <div v-if="header" class="list-section-header text-footnote text-secondary">{{ header }}</div>
-    <div class="list-section-content">
+  <div class="ios-list-section">
+    <div v-if="header" class="ios-list-section-header">{{ header }}</div>
+    <div class="ios-list-section-content">
       <slot />
     </div>
-    <div v-if="footer" class="list-section-footer text-footnote text-secondary">{{ footer }}</div>
+    <div v-if="footer" class="ios-list-section-footer">{{ footer }}</div>
   </div>
 </template>
 
@@ -14,3 +14,20 @@ defineProps({
   footer: String,
 })
 </script>
+
+<style scoped>
+.ios-list-section { margin-bottom: var(--space-8); }
+.ios-list-section-header {
+  padding: var(--space-2) var(--space-4) var(--space-1);
+  text-transform: uppercase;
+}
+.ios-list-section-content {
+  background-color: var(--bg-grouped-secondary);
+  border-radius: 10px;
+  margin: 0 var(--space-4);
+  overflow: hidden;
+}
+.ios-list-section-footer {
+  padding: var(--space-1) var(--space-4) var(--space-2);
+}
+</style>

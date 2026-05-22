@@ -1,21 +1,24 @@
 <template>
-  <div class="slider-wrapper">
-    <div v-if="$slots.leading" class="slider-leading"><slot name="leading" /></div>
+  <div class="ios-slider-wrapper">
+    <div v-if="$slots.leading" class="ios-slider-leading"><slot name="leading" /></div>
     <input
       type="range"
-      class="slider"
+      class="ios-slider"
       :min="min"
       :max="max"
       :step="step"
       :disabled="disabled"
       :value="modelValue"
+      :style="{ '--ios-slider-fill': fillPercent + '%' }"
       @input="onInput"
     />
-    <div v-if="$slots.trailing" class="slider-trailing"><slot name="trailing" /></div>
+    <div v-if="$slots.trailing" class="ios-slider-trailing"><slot name="trailing" /></div>
   </div>
 </template>
 
 <script setup>
+import { computed } from 'vue'
+
 const props = defineProps({
   modelValue: { type: Number, default: 0 },
   min: { type: Number, default: 0 },
@@ -26,9 +29,41 @@ const props = defineProps({
 
 const emit = defineEmits(['update:modelValue', 'change'])
 
+const fillPercent = computed(() =>
+  ((props.modelValue - props.min) / (props.max - props.min)) * 100
+)
+
 function onInput(e) {
   const val = Number(e.target.value)
   emit('update:modelValue', val)
   emit('change', val)
 }
 </script>
+
+<style scoped>
+.ios-slider-wrapper {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-2) 0;
+}
+.ios-slider {
+  flex: 1;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 4px;
+  border-radius: 2px;
+  background: linear-gradient(to right, var(--color-blue) 0%, var(--color-blue) var(--ios-slider-fill), var(--fill-primary) var(--ios-slider-fill), var(--fill-primary) 100%);
+  outline: none;
+}
+.ios-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--white);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  border: none;
+}
+</style>

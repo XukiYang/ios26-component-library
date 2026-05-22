@@ -1,14 +1,14 @@
 <template>
-  <nav class="tabbar liquid-glass-large">
+  <nav class="ios-tabbar liquid-glass-large">
     <button
       v-for="item in items"
       :key="item.id"
-      class="tabbar-item"
-      :class="{ active: modelValue === item.id }"
+      class="ios-tabbar-item"
+      :class="{ 'ios-tabbar-active': modelValue === item.id }"
       @click="onSelect(item.id)"
     >
-      <span class="tabbar-icon">{{ item.icon }}</span>
-      <span class="tabbar-label text-caption2">{{ item.label }}</span>
+      <span class="ios-tabbar-icon">{{ item.icon }}</span>
+      <span class="ios-tabbar-label">{{ item.label }}</span>
     </button>
   </nav>
 </template>
@@ -26,3 +26,35 @@ function onSelect(id) {
   emit('change', id)
 }
 </script>
+
+<style scoped>
+.ios-tabbar {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-around;
+  padding: var(--space-1) 0 var(--space-2);
+  position: sticky;
+  bottom: 0;
+  z-index: 100;
+}
+.ios-tabbar-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--label-secondary);
+  padding: var(--space-1) var(--space-3);
+  -webkit-tap-highlight-color: transparent;
+}
+.ios-tabbar-item.ios-tabbar-active { color: var(--color-blue); }
+.ios-tabbar-icon { font-size: 24px; line-height: 1; }
+.ios-tabbar-label {
+  font-family: var(--font-family);
+  font-size: var(--text-caption2);
+  line-height: var(--lh-caption2);
+  letter-spacing: var(--ls-caption2);
+}
+</style>

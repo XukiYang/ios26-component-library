@@ -299,6 +299,28 @@ body {
   overflow: hidden;
 }
 
+/* ===== Typography ===== */
+.text-large-title { font-family: var(--font-family); font-size: var(--text-large-title); line-height: var(--lh-large-title); letter-spacing: var(--ls-large-title); font-weight: var(--weight-regular); }
+.text-title1 { font-family: var(--font-family); font-size: var(--text-title1); line-height: var(--lh-title1); letter-spacing: var(--ls-title1); font-weight: var(--weight-regular); }
+.text-title2 { font-family: var(--font-family); font-size: var(--text-title2); line-height: var(--lh-title2); letter-spacing: var(--ls-title2); font-weight: var(--weight-regular); }
+.text-title3 { font-family: var(--font-family); font-size: var(--text-title3); line-height: var(--lh-title3); letter-spacing: var(--ls-title3); font-weight: var(--weight-regular); }
+.text-headline { font-family: var(--font-family); font-size: var(--text-headline); line-height: var(--lh-headline); letter-spacing: var(--ls-headline); font-weight: var(--weight-semibold); }
+.text-body { font-family: var(--font-family); font-size: var(--text-body); line-height: var(--lh-body); letter-spacing: var(--ls-body); font-weight: var(--weight-regular); }
+.text-callout { font-family: var(--font-family); font-size: var(--text-callout); line-height: var(--lh-callout); letter-spacing: var(--ls-callout); font-weight: var(--weight-regular); }
+.text-subheadline { font-family: var(--font-family); font-size: var(--text-subheadline); line-height: var(--lh-subheadline); letter-spacing: var(--ls-subheadline); font-weight: var(--weight-regular); }
+.text-footnote { font-family: var(--font-family); font-size: var(--text-footnote); line-height: var(--lh-footnote); letter-spacing: var(--ls-footnote); font-weight: var(--weight-regular); }
+.text-caption1 { font-family: var(--font-family); font-size: var(--text-caption1); line-height: var(--lh-caption1); letter-spacing: var(--ls-caption1); font-weight: var(--weight-regular); }
+.text-caption2 { font-family: var(--font-family); font-size: var(--text-caption2); line-height: var(--lh-caption2); letter-spacing: var(--ls-caption2); font-weight: var(--weight-regular); }
+.emphasized { font-weight: var(--weight-semibold); }
+.text-large-title.emphasized { font-weight: var(--weight-bold); }
+.text-title1.emphasized { font-weight: var(--weight-bold); }
+.text-title2.emphasized { font-weight: var(--weight-bold); }
+.text-title3.emphasized { font-weight: var(--weight-semibold); }
+.text-caption1.emphasized { font-weight: var(--weight-medium); }
+.text-caption2.emphasized { font-weight: var(--weight-semibold); }
+.text-secondary { color: var(--label-secondary); }
+.text-tertiary { color: var(--label-tertiary); }
+
 /* ===== Background Orbs (rich gradient for liquid glass to distort) ===== */
 .bg-layer {
   position: fixed;
@@ -370,7 +392,7 @@ body {
   flex-shrink: 0;
   z-index: 50;
 }
-.toolbar-leading, .toolbar-trailing { display: flex; gap: 8px; min-width: 70px; }
+.toolbar-leading, .toolbar-trailing { display: flex; gap: var(--space-2); min-width: 60px; }
 .toolbar-trailing { justify-content: flex-end; }
 .toolbar-title { flex: 1; text-align: center; }
 

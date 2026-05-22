@@ -1,17 +1,17 @@
 <template>
   <Teleport to="body">
-    <div v-if="modelValue" class="alert-backdrop" @click="close">
-      <div class="alert material-thick" role="alertdialog" :aria-label="title" @click.stop>
-        <div class="alert-content">
-          <h2 class="text-headline">{{ title }}</h2>
-          <p v-if="message" class="text-callout text-secondary">{{ message }}</p>
+    <div v-if="modelValue" class="ios-alert-backdrop" @click="close">
+      <div class="ios-alert material-thick" role="alertdialog" :aria-label="title" @click.stop>
+        <div class="ios-alert-content">
+          <h2>{{ title }}</h2>
+          <p v-if="message">{{ message }}</p>
         </div>
-        <div class="alert-actions">
+        <div class="ios-alert-actions">
           <button
             v-for="action in actions"
             :key="action.label"
-            class="alert-action text-body"
-            :class="{ cancel: action.style === 'cancel', destructive: action.style === 'destructive' }"
+            class="ios-alert-action"
+            :class="{ 'ios-alert-action-cancel': action.style === 'cancel', 'ios-alert-action-destructive': action.style === 'destructive' }"
             @click="onAction(action)"
           >
             {{ action.label }}
@@ -41,3 +41,57 @@ function onAction(action) {
   close()
 }
 </script>
+
+<style scoped>
+.ios-alert-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+.ios-alert {
+  width: 270px;
+  border-radius: 14px;
+  padding: var(--space-6);
+  text-align: center;
+}
+.ios-alert-content { margin-bottom: var(--space-4); }
+.ios-alert-content h2 { margin: 0 0 var(--space-1); }
+.ios-alert-content p { margin: 0; }
+.ios-alert-actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+h2 {
+  font-family: var(--font-family);
+  font-size: var(--text-headline);
+  line-height: var(--lh-headline);
+  letter-spacing: var(--ls-headline);
+  font-weight: var(--weight-semibold);
+}
+p {
+  font-family: var(--font-family);
+  font-size: var(--text-body);
+  line-height: var(--lh-body);
+  letter-spacing: var(--ls-body);
+  color: var(--label-secondary);
+}
+.ios-alert-action {
+  font-family: var(--font-family);
+  font-size: var(--text-callout);
+  line-height: var(--lh-callout);
+  letter-spacing: var(--ls-callout);
+  padding: var(--space-2);
+  border: none;
+  border-radius: 8px;
+  background: var(--color-blue);
+  color: var(--white);
+  font-weight: var(--weight-semibold);
+}
+.ios-alert-action.ios-alert-action-cancel { background: var(--fill-primary); color: var(--color-blue); }
+.ios-alert-action.ios-alert-action-destructive { background: var(--color-red); color: var(--white); }
+</style>

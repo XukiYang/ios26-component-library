@@ -1,14 +1,14 @@
 <template>
-  <header class="toolbar liquid-glass-large" :class="{ collapsed }">
-    <div class="toolbar-leading">
+  <header class="ios-toolbar liquid-glass-large" :class="{ 'ios-collapsed': collapsed }">
+    <div class="ios-toolbar-leading">
       <slot name="leading" />
     </div>
-    <div class="toolbar-title text-headline">{{ title }}</div>
-    <div class="toolbar-trailing">
+    <div class="ios-toolbar-title">{{ title }}</div>
+    <div class="ios-toolbar-trailing">
       <slot name="trailing" />
     </div>
   </header>
-  <div v-if="largeTitle && !collapsed" class="toolbar-large-title text-large-title emphasized" style="padding: 0 16px 8px;">
+  <div v-if="largeTitle && !collapsed" class="ios-toolbar-large-title" style="padding: 0 16px 8px;">
     {{ title }}
   </div>
 </template>
@@ -24,3 +24,36 @@ const props = defineProps({
 
 const collapsed = computed(() => props.scrollY > 44)
 </script>
+
+<style scoped>
+.ios-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--toolbar-height);
+  padding: 0 var(--space-4);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.ios-toolbar-title {
+  font-family: var(--font-family);
+  font-size: var(--text-headline);
+  line-height: var(--lh-headline);
+  letter-spacing: var(--ls-headline);
+  font-weight: var(--weight-semibold);
+}
+.ios-toolbar-leading,
+.ios-toolbar-trailing { display: flex; gap: var(--space-2); min-width: 60px; }
+.ios-toolbar-trailing { justify-content: flex-end; }
+.ios-toolbar.ios-collapsed {
+  box-shadow: 0 0.5px 0 0 var(--separator);
+}
+.ios-toolbar-large-title {
+  font-family: var(--font-family);
+  font-size: var(--text-large-title);
+  line-height: var(--lh-large-title);
+  letter-spacing: var(--ls-large-title);
+  font-weight: var(--weight-bold);
+}
+</style>

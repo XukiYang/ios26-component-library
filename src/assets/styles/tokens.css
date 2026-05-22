@@ -145,6 +145,11 @@
   --glass-clear-radius: 5px;
   --glass-clear-shadow-blur: 40px;
 
+  --lgb-track-bg: rgba(255, 255, 255, 0.55);
+  --lgb-track-shadow: 0 0 0 0.5px rgba(255, 255, 255, 0.3) inset, 0 1px 4px rgba(0, 0, 0, 0.06);
+  --lgb-pill-bg: rgba(255, 255, 255, 0.65);
+  --lgb-pill-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.7) inset, 0 2px 8px rgba(0, 0, 0, 0.07), 0 0 0 0.5px rgba(0, 0, 0, 0.04);
+
   --scroll-edge-soft-blur: 10px;
   --scroll-edge-hard-blur: 60px;
 
@@ -234,6 +239,11 @@
     --glass-small-border: rgba(255, 255, 255, 0.06);
     --glass-clear-bg: rgba(255, 255, 255, 0.07);
 
+    --lgb-track-bg: rgba(0, 0, 0, 0.55);
+    --lgb-track-shadow: 0 0 0 0.5px rgba(255, 255, 255, 0.08) inset, 0 1px 4px rgba(0, 0, 0, 0.2);
+    --lgb-pill-bg: rgba(255, 255, 255, 0.14);
+    --lgb-pill-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.18) inset, 0 2px 8px rgba(0, 0, 0, 0.3), 0 0 0 0.5px rgba(255, 255, 255, 0.08);
+
     --material-chrome-opacity: 0.75;
     --material-thick-opacity: 0.84;
     --material-regular-opacity: 0.60;
@@ -299,6 +309,11 @@
   --glass-small-bg: rgba(0, 0, 0, 0.6);
   --glass-small-border: rgba(255, 255, 255, 0.06);
   --glass-clear-bg: rgba(255, 255, 255, 0.07);
+
+  --lgb-track-bg: rgba(0, 0, 0, 0.55);
+  --lgb-track-shadow: 0 0 0 0.5px rgba(255, 255, 255, 0.08) inset, 0 1px 4px rgba(0, 0, 0, 0.2);
+  --lgb-pill-bg: rgba(255, 255, 255, 0.14);
+  --lgb-pill-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.18) inset, 0 2px 8px rgba(0, 0, 0, 0.3), 0 0 0 0.5px rgba(255, 255, 255, 0.08);
 
   --material-chrome-opacity: 0.75;
   --material-thick-opacity: 0.84;

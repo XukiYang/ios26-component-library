@@ -1,21 +1,22 @@
 <template>
-  <div class="searchbar" :class="{ focused }">
-    <div class="searchbar-field">
-      <span class="searchbar-icon text-tertiary">🔍</span>
+  <div class="ios-searchbar" :class="{ 'ios-searchbar-focused': focused }">
+    <div class="ios-searchbar-field">
+      <span class="ios-searchbar-icon">🔍</span>
       <input
-        class="searchbar-input text-body"
+        class="ios-searchbar-input"
         type="search"
         :placeholder="placeholder"
         :value="modelValue"
         @input="onInput"
         @focus="focused = true"
+        @blur="onBlur"
         @keydown.enter="onSubmit"
       />
     </div>
     <button
       v-if="focused"
-      class="searchbar-cancel text-body"
-      @click="onCancel"
+      class="ios-searchbar-cancel"
+      @mousedown.prevent="onCancel"
     >Cancel</button>
   </div>
 </template>
@@ -42,6 +43,10 @@ function onSubmit() {
   emit('submit', props.modelValue)
 }
 
+function onBlur() {
+  setTimeout(() => { focused.value = false }, 200)
+}
+
 function onCancel() {
   emit('update:modelValue', '')
   emit('input', '')
@@ -49,3 +54,41 @@ function onCancel() {
   focused.value = false
 }
 </script>
+
+<style scoped>
+.ios-searchbar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+.ios-searchbar-field {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  background-color: var(--fill-primary);
+  border-radius: 10px;
+  padding: 0 var(--space-3);
+}
+.ios-searchbar-icon { font-size: 16px; }
+.ios-searchbar-input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  padding: var(--space-3) 0;
+  outline: none;
+  color: var(--label-primary);
+  font-family: var(--font-family);
+  font-size: var(--text-body);
+}
+.ios-searchbar-cancel {
+  background: none;
+  border: none;
+  color: var(--color-blue);
+  cursor: pointer;
+  white-space: nowrap;
+  padding: 0;
+  font-family: var(--font-family);
+  font-size: var(--text-subheadline);
+}
+</style>

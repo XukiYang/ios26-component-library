@@ -1,9 +1,9 @@
 <template>
-  <div ref="trackRef" class="lgb-track" role="tablist">
+  <div ref="trackRef" class="ios-lgb-track" role="tablist">
     <!-- Liquid glass pill — CSS-transitioned slide -->
     <div
       ref="pillRef"
-      class="lgb-pill"
+      class="ios-lgb-pill"
       :style="pillStyle"
       aria-hidden="true"
     />
@@ -12,12 +12,12 @@
       v-for="(item, i) in items"
       :key="item.id ?? i"
       role="tab"
-      class="lgb-option"
-      :class="{ 'lgb-active': activeIndex === i }"
+      class="ios-lgb-option"
+      :class="{ 'ios-lgb-active': activeIndex === i }"
       :aria-selected="activeIndex === i"
       @click="select(i)"
     >
-      <span class="lgb-label">{{ item.label ?? item }}</span>
+      <span class="ios-lgb-label">{{ item.label ?? item }}</span>
     </button>
   </div>
 </template>
@@ -80,7 +80,7 @@ function syncFilterSize() {
 function measurePill(index) {
   const track = trackRef.value
   if (!track) return
-  const btns = track.querySelectorAll('.lgb-option')
+  const btns = track.querySelectorAll('.ios-lgb-option')
   const btn = btns[index ?? activeIndex.value]
   if (!btn) return
   const tr = track.getBoundingClientRect()
@@ -114,7 +114,7 @@ onUnmounted(() => {
 
 <style scoped>
 /* ---- Track: full capsule with Regular-level glass background ------------ */
-.lgb-track {
+.ios-lgb-track {
   position: relative;
   display: flex;
   align-items: center;
@@ -122,29 +122,23 @@ onUnmounted(() => {
   padding: 2px;
   gap: 2px;
   /* Regular glass material */
-  background: rgba(255, 255, 255, 0.55);
+  background: var(--lgb-track-bg);
   backdrop-filter: blur(40px) saturate(1.2);
   -webkit-backdrop-filter: blur(40px) saturate(1.2);
   border-radius: 9999px;
   overflow: hidden;
-  box-shadow:
-    0 0 0 0.5px rgba(255, 255, 255, 0.3) inset,
-    0 1px 4px rgba(0, 0, 0, 0.06);
+  box-shadow: var(--lgb-track-shadow);
 }
 
 /* ---- Glass pill indicator ----------------------------------------------- */
-.lgb-pill {
+.ios-lgb-pill {
   position: absolute;
   top: 2px;
   height: 36px;
   border-radius: 9999px;
   /* Semi-transparent glass body */
-  background: rgba(255, 255, 255, 0.65);
-  /* Inner highlight (top edge) for glass thickness */
-  box-shadow:
-    0 1px 0 0 rgba(255, 255, 255, 0.7) inset,
-    0 2px 8px rgba(0, 0, 0, 0.07),
-    0 0 0 0.5px rgba(0, 0, 0, 0.04);
+  background: var(--lgb-pill-bg);
+  box-shadow: var(--lgb-pill-shadow);
   backdrop-filter: blur(30px) contrast(1.05) saturate(1.1);
   -webkit-backdrop-filter: blur(30px) contrast(1.05) saturate(1.1);
   pointer-events: none;
@@ -156,7 +150,7 @@ onUnmounted(() => {
 }
 
 /* ---- Options (text labels) ---------------------------------------------- */
-.lgb-option {
+.ios-lgb-option {
   position: relative;
   z-index: 1;
   flex: 1;
@@ -177,62 +171,14 @@ onUnmounted(() => {
   user-select: none;
 }
 
-.lgb-option.lgb-active {
+.ios-lgb-option.ios-lgb-active {
   color: var(--label-primary);
 }
 
-.lgb-label {
+.ios-lgb-label {
   font-size: var(--text-subheadline);
   font-weight: var(--weight-medium);
   letter-spacing: var(--ls-subheadline);
 }
 
-/* ---- Dark mode ---------------------------------------------------------- */
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .lgb-track {
-    background: rgba(0, 0, 0, 0.55);
-    box-shadow:
-      0 0 0 0.5px rgba(255, 255, 255, 0.08) inset,
-      0 1px 4px rgba(0, 0, 0, 0.2);
-  }
-
-  :root:not([data-theme="light"]) .lgb-pill {
-    background: rgba(255, 255, 255, 0.14);
-    box-shadow:
-      0 1px 0 0 rgba(255, 255, 255, 0.18) inset,
-      0 2px 8px rgba(0, 0, 0, 0.3),
-      0 0 0 0.5px rgba(255, 255, 255, 0.08);
-  }
-
-  :root:not([data-theme="light"]) .lgb-option {
-    color: rgba(235, 235, 245, 0.55);
-  }
-
-  :root:not([data-theme="light"]) .lgb-option.lgb-active {
-    color: #ffffff;
-  }
-}
-
-[data-theme="dark"] .lgb-track {
-  background: rgba(0, 0, 0, 0.55);
-  box-shadow:
-    0 0 0 0.5px rgba(255, 255, 255, 0.08) inset,
-    0 1px 4px rgba(0, 0, 0, 0.2);
-}
-
-[data-theme="dark"] .lgb-pill {
-  background: rgba(255, 255, 255, 0.14);
-  box-shadow:
-    0 1px 0 0 rgba(255, 255, 255, 0.18) inset,
-    0 2px 8px rgba(0, 0, 0, 0.3),
-    0 0 0 0.5px rgba(255, 255, 255, 0.08);
-}
-
-[data-theme="dark"] .lgb-option {
-  color: rgba(235, 235, 245, 0.55);
-}
-
-[data-theme="dark"] .lgb-option.lgb-active {
-  color: #ffffff;
-}
 </style>

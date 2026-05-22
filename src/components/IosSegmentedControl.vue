@@ -1,11 +1,11 @@
 <template>
-  <div class="segmented-control" role="tablist">
+  <div class="ios-segmented-control" role="tablist">
     <button
       v-for="(label, i) in segments"
       :key="label"
       role="tab"
-      class="segment text-subheadline"
-      :class="{ active: modelValue === i }"
+      class="ios-segment"
+      :class="{ 'ios-segment-active': modelValue === i }"
       :aria-selected="modelValue === i"
       @click="onSelect(i)"
     >
@@ -27,3 +27,32 @@ function onSelect(index) {
   emit('change', index)
 }
 </script>
+
+<style scoped>
+.ios-segmented-control {
+  display: flex;
+  background-color: var(--fill-secondary);
+  border-radius: 8px;
+  padding: 2px;
+  gap: 2px;
+}
+.ios-segment {
+  flex: 1;
+  padding: var(--space-1) var(--space-3);
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--label-secondary);
+  cursor: pointer;
+  font-family: var(--font-family);
+  font-size: var(--text-subheadline);
+  font-weight: var(--weight-medium);
+  transition: all 0.2s;
+  -webkit-tap-highlight-color: transparent;
+}
+.ios-segment.ios-segment-active {
+  background-color: var(--bg-primary);
+  color: var(--label-primary);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+</style>

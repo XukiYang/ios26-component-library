@@ -28,8 +28,6 @@ src/
   assets/styles/
     tokens.css                   — Design tokens (colors, spacing, typography, glass vars) — the ONLY mandatory global CSS
     materials.css                — Optional utility classes for glass/material effects (not used by components)
-    components.css               — Legacy shared styles (target: delete; migrate into component scoped CSS)
-    typography.css               — Legacy (target: merge into tokens.css, delete)
   components/
     IosXxx*.vue                  — Each component fully self-contained with <style scoped>
   composables/

@@ -1,9 +1,9 @@
 <template>
-  <div class="textfield-wrapper">
-    <label v-if="label" class="text-subheadline text-secondary">{{ label }}</label>
-    <div class="textfield-input-wrapper">
+  <div class="ios-textfield-wrapper">
+    <label v-if="label" class="ios-textfield-label">{{ label }}</label>
+    <div class="ios-textfield-input-wrapper">
       <input
-        class="textfield text-body"
+        class="ios-textfield"
         :type="type"
         :placeholder="placeholder"
         :disabled="disabled"
@@ -12,7 +12,7 @@
       />
       <button
         v-if="clearable && modelValue"
-        class="textfield-clear"
+        class="ios-textfield-clear"
         @click="onClear"
         aria-label="Clear"
       >&times;</button>
@@ -43,3 +43,41 @@ function onClear() {
   emit('input', '')
 }
 </script>
+
+<style scoped>
+.ios-textfield-wrapper { display: flex; flex-direction: column; gap: var(--space-1); }
+.ios-textfield-input-wrapper {
+  display: flex;
+  align-items: center;
+  background-color: var(--fill-primary);
+  border-radius: 10px;
+  padding: 0 var(--space-3);
+  gap: var(--space-2);
+}
+.ios-textfield {
+  flex: 1;
+  border: none;
+  background: transparent;
+  padding: var(--space-3) 0;
+  outline: none;
+  color: var(--label-primary);
+  font-family: var(--font-family);
+  font-size: var(--text-body);
+}
+.ios-textfield-clear {
+  background: none;
+  border: none;
+  color: var(--label-tertiary);
+  font-size: 18px;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+}
+.ios-textfield-label {
+  font-family: var(--font-family);
+  font-size: var(--text-subheadline);
+  line-height: var(--lh-subheadline);
+  letter-spacing: var(--ls-subheadline);
+  color: var(--label-secondary);
+}
+</style>
