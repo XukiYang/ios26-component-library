@@ -34,7 +34,27 @@ src/
     usePillLiquidGlass.js        — Per-instance canvas SDF + SVG feDisplacementMap filter
     useLiquidGlass.js            — Core liquid glass shader (standalone, not Vue-specific)
     useLiquidGlassFilter.js      — Global turbulence-based filter singleton
+    useToast.js                  — Toast notification composable (singleton, shared state)
+    useConfirm.js                — Promise-based confirm dialog composable (pairs with IosAlert)
+  assets/font/
+    font.css                     — HarmonyOS Sans SC font-face declarations
+    HarmonyOS_Sans/              — HarmonyOS TTF font files
 ```
+
+### Components added by XukiBlogs integration
+
+| Component | Description |
+|-----------|-------------|
+| `IosIcon` | SVG icon system, 15 built-in icons (home/user/like/share/up/down/comment/back/check/search/close/warning/planet/hourglass-null/application-menu) |
+| `IosToast` | Toast notification with success/error/warning/info types, auto-dismiss, slide animation |
+| `IosErrorView` | Error boundary display, retry/home buttons |
+| `IosProgressBar` | Horizontal progress bar, fixed position, accent glow |
+| `IosFloatingActionButton` | Draggable FAB with expand/collapse action panel, pointer events |
+| `IosActionBar` | Vertical card button group (icon + label rows) |
+| `IosTableView` | Inset grouped list with sections, header/footer, disclosure indicators, level indentation |
+| `IosChip` | Pill-shaped filter/tag chip, active/hover/disabled states |
+| `IosPagination` | Page navigation with page numbers and ellipsis |
+| `IosEmptyState` | Centered empty state placeholder with icon/title/description/action |
 
 ### Design decisions
 

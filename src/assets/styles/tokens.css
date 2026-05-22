@@ -65,7 +65,7 @@
   --vibrant-fill-tertiary: #ededed;
 
   /* -- Typography -------------------------------------------------------- */
-  --font-family: 'SF Pro', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --font-family: 'HarmonyOS_Sans_SC_Regular', 'SF Pro', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
 
   --text-large-title: 34px;
   --text-title1: 28px;
