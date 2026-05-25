@@ -65,7 +65,7 @@ const props = defineProps({
 
 const emit = defineEmits(['update:expanded', 'drag-end'])
 
-const FAB_SIZE = 44
+const fabSize = ref(window.innerWidth <= 768 ? 56 : 44)
 
 const posX = ref(0)
 const posY = ref(0)
@@ -88,17 +88,18 @@ const fabStyle = computed(() => ({
 function computePosition() {
   const vw = window.innerWidth
   const vh = window.innerHeight
+  const size = fabSize.value
   switch (props.position) {
     case 'bottom-right':
-      posX.value = vw - props.offsetX - FAB_SIZE
-      posY.value = vh - props.offsetY - FAB_SIZE
+      posX.value = vw - props.offsetX - size
+      posY.value = vh - props.offsetY - size
       break
     case 'bottom-left':
       posX.value = props.offsetX
-      posY.value = vh - props.offsetY - FAB_SIZE
+      posY.value = vh - props.offsetY - size
       break
     case 'top-right':
-      posX.value = vw - props.offsetX - FAB_SIZE
+      posX.value = vw - props.offsetX - size
       posY.value = props.offsetY
       break
     case 'top-left':
@@ -112,8 +113,9 @@ function computePosition() {
 function clampToViewport() {
   const vw = window.innerWidth
   const vh = window.innerHeight
-  posX.value = Math.max(0, Math.min(vw - FAB_SIZE, posX.value))
-  posY.value = Math.max(0, Math.min(vh - FAB_SIZE, posY.value))
+  const size = fabSize.value
+  posX.value = Math.max(0, Math.min(vw - size, posX.value))
+  posY.value = Math.max(0, Math.min(vh - size, posY.value))
 }
 
 /** @param {PointerEvent} e */
@@ -161,6 +163,7 @@ function onPointerUp(e) {
 }
 
 function onResize() {
+  fabSize.value = window.innerWidth <= 768 ? 56 : 44
   clampToViewport()
 }
 
@@ -275,11 +278,6 @@ watch(
   box-shadow: 0 2px 16px rgba(0, 0, 0, 0.2);
 }
 
-/* Suppress button transitions while the whole FAB is being dragged */
-.ios-fab-dragging .ios-fab-btn {
-  transition: none;
-}
-
 /* ---- Panel scrollbar ---- */
 .ios-fab-actions-panel::-webkit-scrollbar {
   width: 3px;
@@ -288,5 +286,20 @@ watch(
 .ios-fab-actions-panel::-webkit-scrollbar-thumb {
   background: var(--label-quaternary);
   border-radius: var(--radius-xs);
+}
+
+/* ---- Mobile: larger touch target ---- */
+@media (max-width: 768px) {
+  .ios-fab {
+    width: 56px;
+  }
+  .ios-fab-btn {
+    width: 56px;
+    height: 56px;
+  }
+  .ios-fab-btn :deep(.ios-icon) {
+    width: 28px;
+    height: 28px;
+  }
 }
 </style>

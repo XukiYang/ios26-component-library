@@ -1,25 +1,27 @@
 <template>
   <Teleport to="body">
-    <div v-if="modelValue" class="ios-sheet-backdrop" @click="close">
-      <div
-        class="ios-sheet"
-        :class="[detentClass]"
-        :style="{ transform: `translateY(${offsetY}px)` }"
-        @click.stop
-      >
-        <div v-if="grabber" class="ios-sheet-grabber"
-          @pointerdown="onDragStart"
-          @pointermove="onDragMove"
-          @pointerup="onDragEnd"
-        ></div>
-        <div v-if="title" class="ios-sheet-header">
-          <h2>{{ title }}</h2>
-        </div>
-        <div class="ios-sheet-content">
-          <slot />
+    <Transition name="ios-sheet">
+      <div v-if="modelValue" class="ios-sheet-backdrop" @click="close">
+        <div
+          class="ios-sheet"
+          :class="[detentClass]"
+          :style="{ marginTop: offsetY + 'px' }"
+          @click.stop
+        >
+          <div v-if="grabber" class="ios-sheet-grabber"
+            @pointerdown="onDragStart"
+            @pointermove="onDragMove"
+            @pointerup="onDragEnd"
+          ></div>
+          <div v-if="title" class="ios-sheet-header">
+            <h2>{{ title }}</h2>
+          </div>
+          <div class="ios-sheet-content">
+            <slot />
+          </div>
         </div>
       </div>
-    </div>
+    </Transition>
   </Teleport>
 </template>
 
@@ -106,4 +108,24 @@ function onDragEnd() {
 .ios-detent-medium .ios-sheet-content { min-height: 40vh; }
 .ios-detent-large .ios-sheet-content { min-height: 70vh; }
 .ios-detent-full .ios-sheet-content { min-height: 90vh; }
+
+/* ---- Enter/leave animations ---- */
+.ios-sheet-enter-active,
+.ios-sheet-leave-active {
+  transition: opacity 0.35s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+.ios-sheet-enter-from,
+.ios-sheet-leave-to {
+  opacity: 0;
+}
+.ios-sheet-enter-active .ios-sheet,
+.ios-sheet-leave-active .ios-sheet {
+  transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+.ios-sheet-enter-from .ios-sheet {
+  transform: translateY(100%);
+}
+.ios-sheet-leave-to .ios-sheet {
+  transform: translateY(100%);
+}
 </style>
