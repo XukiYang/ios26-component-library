@@ -66,7 +66,7 @@
           </div>
         </section>
 
-        <section class="section" style="padding-bottom: 100px;">
+        <section class="section">
           <h2 class="section-label text-footnote emphasized text-secondary">Icons</h2>
           <div class="glass-card liquid-glass-medium">
             <div class="icon-grid">
@@ -74,6 +74,83 @@
                 <IosIcon :name="name" size="24" />
                 <span class="text-caption2 text-secondary">{{ name }}</span>
               </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2 class="section-label text-footnote emphasized text-secondary">Avatar</h2>
+          <div class="glass-card liquid-glass-medium" style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+            <IosAvatar size="sm" initials="A" />
+            <IosAvatar size="md" initials="BC" color="var(--color-blue)" />
+            <IosAvatar size="lg" initials="JD" color="var(--color-green)" />
+            <IosAvatar size="xl" initials="XL" color="var(--color-purple)" />
+            <IosAvatar size="md" />
+          </div>
+        </section>
+
+        <section class="section">
+          <h2 class="section-label text-footnote emphasized text-secondary">Badge</h2>
+          <div class="glass-card liquid-glass-medium" style="display:flex;align-items:center;gap:20px;flex-wrap:wrap;">
+            <div style="position:relative;display:inline-block;">
+              <IosIcon name="comment" size="24" />
+              <IosBadge :value="3" style="position:absolute;top:-6px;right:-8px;" />
+            </div>
+            <div style="position:relative;display:inline-block;">
+              <IosIcon name="message-one" size="24" />
+              <IosBadge :value="128" :max="99" style="position:absolute;top:-6px;right:-8px;" />
+            </div>
+            <IosBadge dot variant="green" />
+            <IosBadge value="NEW" variant="blue" />
+            <IosBadge :value="5" variant="orange" />
+          </div>
+        </section>
+
+        <section class="section">
+          <h2 class="section-label text-footnote emphasized text-secondary">Card</h2>
+          <div style="display:flex;flex-direction:column;gap:12px;">
+            <IosCard variant="glass">
+              <div style="padding:4px;">
+                <span class="text-headline">Glass Card</span>
+                <p class="text-caption1 text-secondary" style="margin:4px 0 0;">Frosted glass with blur backdrop</p>
+              </div>
+            </IosCard>
+            <IosCard variant="solid">
+              <div style="padding:4px;">
+                <span class="text-headline">Solid Card</span>
+                <p class="text-caption1 text-secondary" style="margin:4px 0 0;">Opaque background</p>
+              </div>
+            </IosCard>
+            <IosCard variant="elevated">
+              <div style="padding:4px;">
+                <span class="text-headline">Elevated Card</span>
+                <p class="text-caption1 text-secondary" style="margin:4px 0 0;">Elevated with shadow</p>
+              </div>
+            </IosCard>
+            <IosCard variant="glass" pressable @click="showToast('info')">
+              <div style="padding:4px;">
+                <span class="text-headline">Pressable Card</span>
+                <p class="text-caption1 text-secondary" style="margin:4px 0 0;">Tap me — uses press feedback</p>
+              </div>
+            </IosCard>
+          </div>
+        </section>
+
+        <section class="section" style="padding-bottom: 100px;">
+          <h2 class="section-label text-footnote emphasized text-secondary">Skeleton</h2>
+          <div class="glass-card liquid-glass-medium" style="display:flex;flex-direction:column;gap:12px;">
+            <div style="display:flex;align-items:center;gap:12px;">
+              <IosSkeleton variant="circle" width="44" height="44" />
+              <div style="flex:1;display:flex;flex-direction:column;gap:6px;">
+                <IosSkeleton variant="text" width="60%" />
+                <IosSkeleton variant="text" width="40%" />
+              </div>
+            </div>
+            <IosSkeleton variant="rect" width="100%" height="120" />
+            <div style="display:flex;gap:12px;">
+              <IosSkeleton variant="rounded" width="100" height="80" />
+              <IosSkeleton variant="rounded" width="100" height="80" />
+              <IosSkeleton variant="rounded" width="100" height="80" />
             </div>
           </div>
         </section>
@@ -118,6 +195,23 @@
               <template #leading><span class="text-caption1">Vol</span></template>
               <template #trailing><span class="text-caption1 text-secondary">{{ sliderVal }}%</span></template>
             </IosSlider>
+            <div style="height:16px" />
+            <div style="display:flex;flex-direction:column;gap:8px;">
+              <IosCheckbox v-model="check1" label="Notifications" />
+              <IosCheckbox v-model="check2" label="Location Services" />
+              <IosCheckbox label="Disabled" disabled />
+            </div>
+            <div style="height:16px" />
+            <div style="display:flex;flex-direction:column;gap:8px;">
+              <IosRadio v-model="radioVal" value="wifi" label="Wi-Fi" name="network" />
+              <IosRadio v-model="radioVal" value="cellular" label="Cellular" name="network" />
+              <IosRadio v-model="radioVal" value="both" label="Both" name="network" />
+            </div>
+            <div style="height:16px" />
+            <div style="display:flex;align-items:center;gap:16px;">
+              <span class="text-caption1 text-secondary">Quantity</span>
+              <IosStepper v-model="stepperVal" :min="0" :max="99" />
+            </div>
           </div>
         </section>
 
@@ -130,7 +224,7 @@
           </div>
         </section>
 
-        <section class="section" style="padding-bottom: 100px;">
+        <section class="section">
           <h2 class="section-label text-footnote emphasized text-secondary">Progress Bar</h2>
           <div class="glass-card liquid-glass-medium" style="position:relative;padding-top:24px;">
             <IosProgressBar :progress="scrollProgress" :fixed="false" />
@@ -138,6 +232,52 @@
               <span class="text-caption2 text-secondary">Page scroll progress</span>
               <span class="text-caption2 emphasized" style="color:var(--color-blue);">{{ scrollProgress }}%</span>
             </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2 class="section-label text-footnote emphasized text-secondary">Circular Progress</h2>
+          <div class="glass-card liquid-glass-medium" style="display:flex;align-items:center;gap:20px;flex-wrap:wrap;">
+            <IosCircularProgress :progress="circularVal" :size="72" :stroke-width="7" show-label />
+            <IosCircularProgress :progress="circularVal" :size="56" color="var(--color-green)" />
+            <IosCircularProgress :progress="circularVal" :size="56" color="var(--color-orange)" />
+            <IosCircularProgress :progress="circularVal" :size="56" color="var(--color-red)" />
+            <IosSlider v-model="circularVal" :min="0" :max="100" style="flex:1;min-width:120px;">
+              <template #trailing><span class="text-caption1 text-secondary">{{ circularVal }}%</span></template>
+            </IosSlider>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2 class="section-label text-footnote emphasized text-secondary">Textarea</h2>
+          <div class="glass-card liquid-glass-medium">
+            <IosTextarea v-model="textareaVal" label="Bio" placeholder="Tell us about yourself..." :rows="3" :maxlength="200" />
+          </div>
+        </section>
+
+        <section class="section">
+          <h2 class="section-label text-footnote emphasized text-secondary">Date & Time</h2>
+          <div class="glass-card liquid-glass-medium" style="display:flex;flex-direction:column;gap:12px;">
+            <IosDatePicker v-model="dateVal" label="Birthday" type="date" />
+            <IosDatePicker v-model="timeVal" label="Alarm" type="time" />
+            <IosDatePicker v-model="datetimeVal" label="Event" type="datetime-local" />
+          </div>
+        </section>
+
+        <section class="section">
+          <h2 class="section-label text-footnote emphasized text-secondary">Picker</h2>
+          <div class="glass-card liquid-glass-medium">
+            <div style="display:flex;align-items:center;justify-content:space-between;">
+              <span class="text-caption1 text-secondary">Selected: {{ pickerResult }}</span>
+              <IosButton variant="filled" size="small" @click="pickerOpen = true">Open Picker</IosButton>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" style="padding-bottom: 100px;">
+          <h2 class="section-label text-footnote emphasized text-secondary">Action Sheet</h2>
+          <div class="glass-card liquid-glass-medium" style="display:flex;gap:8px;">
+            <IosButton variant="filled" size="small" @click="actionSheetOpen = true">Show Actions</IosButton>
           </div>
         </section>
       </template>
@@ -312,6 +452,18 @@
 
   <IosToast />
 
+  <IosPicker v-model="pickerOpen" title="Select Date" :columns="pickerColumns" v-model:selectedIndices="pickerIndices"
+    @confirm="pickerOpen = false" />
+
+  <IosActionSheet v-model="actionSheetOpen" title="Choose Action" message="Select an option below"
+    :actions="[
+      { label: 'Share', style: 'default' },
+      { label: 'Copy Link', style: 'default' },
+      { label: 'Edit', style: 'default' },
+      { label: 'Report', style: 'destructive' },
+    ]"
+    @select="actionSheetOpen = false" />
+
   <IosFloatingActionButton v-model:expanded="fabExpanded" position="bottom-right" :offset-x="20" :offset-y="80" :z-index="200">
     <template #actions>
       <div style="display:flex;flex-direction:column;gap:4px;padding:4px;">
@@ -347,6 +499,15 @@ import IosFloatingActionButton from './components/IosFloatingActionButton.vue'
 import IosToast from './components/IosToast.vue'
 import IosTableView from './components/IosTableView.vue'
 import IosChart from './components/IosChart.vue'
+import IosAvatar from './components/IosAvatar.vue'
+import IosBadge from './components/IosBadge.vue'
+import IosCard from './components/IosCard.vue'
+import IosSkeleton from './components/IosSkeleton.vue'
+import IosCircularProgress from './components/IosCircularProgress.vue'
+import IosDatePicker from './components/IosDatePicker.vue'
+import IosPicker from './components/IosPicker.vue'
+import IosTextarea from './components/IosTextarea.vue'
+import IosActionSheet from './components/IosActionSheet.vue'
 import { useToast } from './composables/useToast.js'
 import { useTheme } from './composables/useTheme.js'
 import { useConfirm } from './composables/useConfirm.js'
@@ -511,6 +672,24 @@ const currentPage = ref(1)
 /* ---- More tab data ------------------------------------------------------- */
 const alertOpen = ref(false)
 const sheetOpen = ref(false)
+const actionSheetOpen = ref(false)
+
+/* ---- Controls: new demos ------------------------------------------------ */
+const circularVal = ref(65)
+const textareaVal = ref('')
+const dateVal = ref('')
+const timeVal = ref('')
+const datetimeVal = ref('')
+const pickerOpen = ref(false)
+const pickerColumns = [
+  ['January', 'February', 'March', 'April', 'May', 'June',
+   'July', 'August', 'September', 'October', 'November', 'December'],
+  Array.from({ length: 31 }, (_, i) => String(i + 1)),
+]
+const pickerIndices = ref([0, 14])
+const pickerResult = computed(() => {
+  return pickerColumns.map((col, i) => col[pickerIndices.value[i] ?? 0]).join(' ')
+})
 
 /* ---- Chart demo data ----------------------------------------------------- */
 const lineData = {
