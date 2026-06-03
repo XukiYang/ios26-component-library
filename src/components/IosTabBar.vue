@@ -7,7 +7,8 @@
       :class="{ 'ios-tabbar-active': modelValue === item.id }"
       @click="onSelect(item.id)"
     >
-      <span class="ios-tabbar-icon">{{ item.icon }}</span>
+      <IosIcon v-if="item.iconName" :name="item.iconName" size="24" data-testid="tab-icon" />
+      <span v-else class="ios-tabbar-icon">{{ item.icon }}</span>
       <span class="ios-tabbar-label">{{ item.label }}</span>
     </button>
   </nav>
@@ -17,12 +18,14 @@
 /**
  * IosTabBar — Bottom tab bar navigation.
  *
- * @prop {Array<{id: string, icon: string, label: string}>} items - Tab items (required)
+ * @prop {Array<{id: string, icon?: string, iconName?: string, label: string}>} items - Tab items (required). Use `iconName` for IosIcon, `icon` for text/emoji fallback.
  * @prop {string} [modelValue=''] - Active tab id (v-model)
  *
  * @event {'update:modelValue'} update:modelValue - Emitted on tab select (v-model)
  * @event {'change'} change - Emitted on tab select with id
  */
+import IosIcon from './IosIcon.vue'
+
 const props = defineProps({
   items: { type: Array, required: true },
   modelValue: { type: String, default: '' },
