@@ -74,9 +74,9 @@ function onToggle() {
 }
 .ios-toggle {
   position: relative;
-  width: 51px;
-  height: 31px;
-  border-radius: 15.5px;
+  width: var(--toggle-width);
+  height: var(--toggle-height);
+  border-radius: var(--radius-full);
   border: none;
   background-color: var(--fill-secondary);
   cursor: pointer;
@@ -86,10 +86,10 @@ function onToggle() {
 .ios-toggle.ios-checked { background-color: var(--color-green); }
 .ios-toggle-thumb {
   position: absolute;
-  top: 2px;
-  left: 2px;
-  width: 27px;
-  height: 27px;
+  top: var(--space-1);
+  left: var(--space-1);
+  width: var(--toggle-thumb);
+  height: var(--toggle-thumb);
   border-radius: 50%;
   background-color: var(--white);
   box-shadow: var(--shadow-sm);

@@ -1,0 +1,47 @@
+{
+  "sprint": 3,
+  "title": "控件去装饰化与交互精炼",
+  "stories": [
+    {
+      "id": "S3-001",
+      "title": "IosButton 扁平化与弹簧回弹",
+      "description": "Button 去掉多余阴影和渐变，按下添加 GSAP 弹簧过冲回弹动画",
+      "status": "done",
+      "acceptance_criteria": [
+        { "id": "S3-001-a", "test": "IosButton 的 filled 变体无 box-shadow（或仅 shadow-sm）", "status": "pass" },
+        { "id": "S3-001-b", "test": "按钮按下动画使用 GSAP spring 过冲回弹（scale 先缩后超再回弹）", "status": "pass" },
+        { "id": "S3-001-c", "test": "liquid-glass 变体已移除或替换为纯色变体", "status": "pass" }
+      ]
+    },
+    {
+      "id": "S3-002",
+      "title": "IosChip / IosCapsuleGroup 扁平化",
+      "description": "Chip 和 Capsule 去掉阴影，用颜色和边框区分状态",
+      "status": "done",
+      "acceptance_criteria": [
+        { "id": "S3-002-a", "test": "IosChip 无 box-shadow，通过背景色和边框区分 active/inactive", "status": "pass" },
+        { "id": "S3-002-b", "test": "IosCapsuleGroup 的 pill 指示器无阴影，用纯白背景 + 边框或颜色对比", "status": "pass" }
+      ]
+    },
+    {
+      "id": "S3-003",
+      "title": "IosTextField / IosSearchBar 清晰化",
+      "description": "输入框聚焦状态更锐利，去掉模糊背景，用清晰的边框色变化表示焦点",
+      "status": "done",
+      "acceptance_criteria": [
+        { "id": "S3-003-a", "test": "TextField/SearchBar 无 backdrop-filter", "status": "pass" },
+        { "id": "S3-003-b", "test": "聚焦状态使用 outline 或 border 颜色变化（accent-blue），无模糊或发光效果", "status": "pass" }
+      ]
+    },
+    {
+      "id": "S3-004",
+      "title": "IosToggle / IosSlider 微交互优化",
+      "description": "Toggle 拇指弹簧过冲更明显，Slider 拇指添加按下缩放反馈",
+      "status": "done",
+      "acceptance_criteria": [
+        { "id": "S3-004-a", "test": "Toggle 切换时拇指有可见的过冲回弹（overshoot > 0）", "status": "pass" },
+        { "id": "S3-004-b", "test": "Slider 拇指按下时有 scale 放大反馈", "status": "pass" }
+      ]
+    }
+  ]
+}

@@ -50,14 +50,13 @@ function onSelect(id) {
   bottom: 0;
   z-index: 100;
   background: var(--tabbar-bg);
-  backdrop-filter: blur(var(--tabbar-blur));
-  -webkit-backdrop-filter: blur(var(--tabbar-blur));
+  border-top: var(--separator-height) solid var(--separator);
 }
 .ios-tabbar-item {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2px;
+  gap: var(--space-1);
   background: none;
   border: none;
   cursor: pointer;
@@ -66,15 +65,11 @@ function onSelect(id) {
   -webkit-tap-highlight-color: transparent;
 }
 .ios-tabbar-item.ios-tabbar-active { color: var(--color-blue); }
-.ios-tabbar-icon { font-size: 24px; line-height: 1; }
+.ios-tabbar-icon { font-size: var(--tab-icon-size); line-height: 1; }
 .ios-tabbar-label {
   font-family: var(--font-family);
   font-size: var(--text-caption2);
   line-height: var(--lh-caption2);
   letter-spacing: var(--ls-caption2);
-}
-
-[data-theme="dark"] .ios-tabbar {
-  background: var(--tabbar-bg);
 }
 </style>

@@ -32,7 +32,7 @@ const props = defineProps({
 
 const emit = defineEmits(['update:modelValue', 'change'])
 
-const { tween, SPRING, DURATION } = useGsap()
+const { tween, DURATION } = useGsap()
 
 const items = computed(() =>
   props.options.map((o, i) =>
@@ -65,7 +65,7 @@ function animatePill(index, instant = false) {
   const w = br.width
   const d = instant ? 0 : DURATION.slow
   tween(pill, {
-    x, width: w, duration: d, ease: SPRING.ease,
+    x, width: w, duration: d, ease: 'power2.out',
   })
 }
 
@@ -97,21 +97,21 @@ onUnmounted(() => resizeObserver?.disconnect())
   display: inline-flex;
   align-items: center;
   height: 36px;
-  padding: 2px;
+  padding: var(--space-1);
   background: var(--fill-tertiary);
   border-radius: var(--radius-full);
 }
 
 .ios-capsule-pill {
   position: absolute;
-  top: 2px;
-  height: calc(100% - 4px);
+  top: var(--space-1);
+  height: calc(100% - var(--space-1) * 2);
   border-radius: var(--radius-full);
   background: var(--bg-primary);
   pointer-events: none;
   z-index: 0;
   will-change: transform;
-  box-shadow: var(--shadow-pill);
+  border: var(--border-hairline) solid var(--separator);
 }
 
 .ios-capsule-option {
@@ -131,7 +131,7 @@ onUnmounted(() => resizeObserver?.disconnect())
   font-family: var(--font-family);
   white-space: nowrap;
   transition: color var(--duration-normal) ease-out;
-  gap: 4px;
+  gap: var(--space-1);
   -webkit-tap-highlight-color: transparent;
   user-select: none;
 }
@@ -143,10 +143,5 @@ onUnmounted(() => resizeObserver?.disconnect())
 .ios-capsule-label {
   font: var(--type-footnote);
   font-weight: var(--weight-semibold);
-}
-
-[data-theme="dark"] .ios-capsule-pill {
-  background: var(--pill-indicator-bg-dark);
-  box-shadow: none;
 }
 </style>

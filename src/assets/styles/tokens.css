@@ -58,7 +58,7 @@
   --separator: rgba(0, 0, 0, 0.12);
 
   /* -- Typography -------------------------------------------------------- */
-  --font-family: 'HarmonyOS_Sans_SC_Regular', 'SF Pro', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
 
   --text-large-title: 34px;
   --text-title1: 28px;
@@ -123,7 +123,7 @@
   --type-caption2: var(--weight-regular) var(--text-caption2)/var(--lh-caption2) var(--font-family);
 
   /* -- Motion (transition durations) ------------------------------------- */
-  --duration-fast: 0.15s;
+  --duration-fast: 0.12s;
   --duration-normal: 0.25s;
   --duration-slow: 0.35s;
 
@@ -131,40 +131,17 @@
   --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1.0);
 
   /* -- Shadows ----------------------------------------------------------- */
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
-  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
-  --shadow-lg: 0 4px 20px rgba(0, 0, 0, 0.15);
-  --shadow-pill: 0 3px 8px rgba(0, 0, 0, 0.12), 0 3px 1px rgba(0, 0, 0, 0.04);
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12), 0 2px 6px rgba(0, 0, 0, 0.06);
   --shadow-thumb: 0 2px 4px rgba(0, 0, 0, 0.3);
 
   /* -- Focus ring -------------------------------------------------------- */
   --focus-ring: inset 0 0 0 1.5px var(--color-blue);
 
-  /* -- Materials (Liquid Glass & Blur) ----------------------------------- */
-  --blur-chrome: 50px;
-  --blur-thick: 100px;
-  --blur-regular: 100px;
-  --blur-thin: 100px;
-  --blur-ultrathin: 100px;
-
-  --glass-large-bg: rgba(250, 250, 250, 0.7);
-  --glass-large-radius: 14px;
-  --glass-medium-bg: transparent;
-  --glass-medium-radius: 12px;
-  --glass-small-bg: #f7f7f7;
-  --glass-small-border: #dddddd;
-  --glass-primary-bg: #ffffff;
-  --glass-primary-icon-color: #0091ff;
-  --glass-clear-bg: rgba(255, 255, 255, 0.07);
-  --glass-clear-radius: 5px;
-
-  /* -- Component backgrounds (tabbar, toolbar, sheet) -------------------- */
-  --tabbar-bg: rgba(250, 250, 250, 0.7);
-  --tabbar-blur: 40px;
-  --toolbar-bg: rgba(250, 250, 250, 0.7);
-  --toolbar-blur: 40px;
-  --sheet-bg: rgba(255, 255, 255, 0.84);
-  --sheet-blur: 100px;
+  /* -- Component backgrounds (flat) -------------------------------------- */
+  --tabbar-bg: rgba(255, 255, 255, 0.92);
+  --toolbar-bg: rgba(255, 255, 255, 0.92);
   --pill-indicator-bg-dark: rgba(255, 255, 255, 0.2);
   --pill-indicator-bg-dark-alt: rgba(255, 255, 255, 0.27);
 
@@ -182,16 +159,13 @@
   --space-12: 48px;
   --space-16: 64px;
 
-  /* -- Radius (iOS 26 control radii) ------------------------------------ */
-  --radius-xs: 2px;
-  --radius-sm: 6px;
-  --radius-md: 8px;
-  --radius-lg: 10px;
-  --radius-xl: 14px;
-  --radius-2xl: 16px;
-  --radius-7: 7px;
-  --radius-9: 9px;
-  --radius-12: 12px;
+  /* -- Radius (4px grid aligned) ----------------------------------------- */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-2xl: 24px;
   --radius-full: 9999px;
 
   /* -- Opacity ----------------------------------------------------------- */
@@ -202,6 +176,21 @@
 
   /* -- Border ------------------------------------------------------------ */
   --border-hairline: 0.5px;
+
+  /* -- Component sizes --------------------------------------------------- */
+  --btn-height-sm: 32px;
+  --btn-height-md: 44px;
+  --btn-height-lg: 50px;
+  --toggle-width: 51px;
+  --toggle-height: 31px;
+  --toggle-thumb: 27px;
+  --tab-icon-size: 24px;
+  --sheet-grabber-w: 36px;
+  --sheet-grabber-h: 5px;
+  --checkbox-size: 22px;
+  --badge-height: 20px;
+  --stepper-btn-w: 36px;
+  --stepper-btn-h: 32px;
 
   /* -- Layout ------------------------------------------------------------ */
   --safe-area-top: 59px;
@@ -263,20 +252,12 @@
     --separator-opaque: #38383a;
     --separator: rgba(84, 84, 88, 0.65);
 
-    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
-    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.3);
-    --shadow-lg: 0 4px 20px rgba(0, 0, 0, 0.35);
-    --shadow-pill: none;
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.24);
+    --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.32), 0 1px 2px rgba(0, 0, 0, 0.16);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.48), 0 2px 6px rgba(0, 0, 0, 0.24);
 
-    --glass-large-bg: rgba(0, 0, 0, 0.8);
-    --glass-medium-bg: transparent;
-    --glass-small-bg: rgba(0, 0, 0, 0.6);
-    --glass-small-border: rgba(255, 255, 255, 0.06);
-    --glass-clear-bg: rgba(255, 255, 255, 0.07);
-
-    --tabbar-bg: rgba(0, 0, 0, 0.8);
-    --toolbar-bg: rgba(0, 0, 0, 0.8);
-    --sheet-bg: rgba(0, 0, 0, 0.84);
+    --tabbar-bg: rgba(28, 28, 30, 0.92);
+    --toolbar-bg: rgba(28, 28, 30, 0.92);
     --pill-indicator-bg-dark: rgba(255, 255, 255, 0.2);
     --pill-indicator-bg-dark-alt: rgba(255, 255, 255, 0.27);
   }
@@ -328,20 +309,12 @@
   --separator-opaque: #38383a;
   --separator: rgba(84, 84, 88, 0.65);
 
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.3);
-  --shadow-lg: 0 4px 20px rgba(0, 0, 0, 0.35);
-  --shadow-pill: none;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.24);
+  --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.32), 0 1px 2px rgba(0, 0, 0, 0.16);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.48), 0 2px 6px rgba(0, 0, 0, 0.24);
 
-  --glass-large-bg: rgba(0, 0, 0, 0.8);
-  --glass-medium-bg: transparent;
-  --glass-small-bg: rgba(0, 0, 0, 0.6);
-  --glass-small-border: rgba(255, 255, 255, 0.06);
-  --glass-clear-bg: rgba(255, 255, 255, 0.07);
-
-  --tabbar-bg: rgba(0, 0, 0, 0.8);
-  --toolbar-bg: rgba(0, 0, 0, 0.8);
-  --sheet-bg: rgba(0, 0, 0, 0.84);
+  --tabbar-bg: rgba(28, 28, 30, 0.92);
+  --toolbar-bg: rgba(28, 28, 30, 0.92);
   --pill-indicator-bg-dark: rgba(255, 255, 255, 0.2);
   --pill-indicator-bg-dark-alt: rgba(255, 255, 255, 0.27);
 }

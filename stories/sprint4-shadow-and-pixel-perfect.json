@@ -1,0 +1,49 @@
+{
+  "sprint": 4,
+  "title": "阴影精简、像素对齐与最终打磨",
+  "stories": [
+    {
+      "id": "S4-001",
+      "title": "阴影系统精简",
+      "description": "保留最轻量的阴影 token，移除过重的层级，确保阴影仅用于必要场景",
+      "status": "done",
+      "acceptance_criteria": [
+        { "id": "S4-001-a", "test": "tokens.css 中 shadow-md 和 shadow-lg 已移除或降级为更轻的值", "status": "pass" },
+        { "id": "S4-001-b", "test": "shadow-sm 保留，值为 0 1px 3px rgba(0,0,0,0.08) 或更轻", "status": "pass" },
+        { "id": "S4-001-c", "test": "shadow-thumb 保留用于滑块拇指，其余自定义阴影已清理", "status": "pass" }
+      ]
+    },
+    {
+      "id": "S4-002",
+      "title": "像素对齐检查与修正",
+      "description": "检查所有控件的尺寸、间距是否对齐整数像素，修复半像素偏移导致的模糊",
+      "status": "done",
+      "acceptance_criteria": [
+        { "id": "S4-002-a", "test": "所有控件的 width/height/padding/margin 为整数像素值（无 .5px）", "status": "pass" },
+        { "id": "S4-002-b", "test": "0.5px 仅用于分隔线 border-width，不用于布局尺寸", "status": "pass" },
+        { "id": "S4-002-c", "test": "所有 translate 值为整数（动画中间态除外）", "status": "pass" }
+      ]
+    },
+    {
+      "id": "S4-003",
+      "title": "dark mode 一致性验证",
+      "description": "确保扁平化后 dark mode 所有组件仍正确显示，无遗漏的硬编码颜色",
+      "status": "done",
+      "acceptance_criteria": [
+        { "id": "S4-003-a", "test": "所有组件样式中无硬编码颜色值（全部使用 var(--*) token）", "status": "pass" },
+        { "id": "S4-003-b", "test": "tokens.css dark mode 区间无遗漏的变量定义", "status": "pass" }
+      ]
+    },
+    {
+      "id": "S4-004",
+      "title": "构建验证与回归检查",
+      "description": "确保所有修改后项目正常构建，无 CSS 警告或错误",
+      "status": "done",
+      "acceptance_criteria": [
+        { "id": "S4-004-a", "test": "npm run build 成功，无错误", "status": "pass" },
+        { "id": "S4-004-b", "test": "npm run build 输出中无 CSS 警告", "status": "pass" },
+        { "id": "S4-004-c", "test": "项目中无引用已删除变量的残留（grep glass-large-bg / blur-regular 等无结果）", "status": "pass" }
+      ]
+    }
+  ]
+}

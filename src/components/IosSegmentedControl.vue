@@ -35,7 +35,7 @@ const props = defineProps({
 
 const emit = defineEmits(['update:modelValue', 'change'])
 
-const { tween, SPRING, DURATION } = useGsap()
+const { tween, DURATION } = useGsap()
 const indicatorRef = ref(null)
 const controlRef = ref(null)
 
@@ -52,7 +52,7 @@ function moveIndicator(index) {
     x: x + 2,
     width: w,
     duration: DURATION.slow,
-    ease: SPRING.ease,
+    ease: 'power2.out',
   })
 }
 
@@ -70,20 +70,20 @@ function onSelect(index) {
 .ios-segmented-control {
   position: relative;
   display: flex;
-  height: 32px;
+  height: var(--space-8);
   background: var(--fill-tertiary);
-  border-radius: var(--radius-9);
-  padding: 2px;
+  border-radius: var(--radius-lg);
+  padding: var(--space-1);
 }
 
 .ios-segment-indicator {
   position: absolute;
-  top: 2px;
-  left: 2px;
-  height: calc(100% - 4px);
+  top: var(--space-1);
+  left: var(--space-1);
+  height: calc(100% - var(--space-1) * 2);
   background: var(--bg-primary);
-  border-radius: var(--radius-7);
-  box-shadow: var(--shadow-pill);
+  border-radius: var(--radius-md);
+  border: var(--border-hairline) solid var(--separator);
   z-index: 0;
 }
 
@@ -91,10 +91,10 @@ function onSelect(index) {
   flex: 1;
   position: relative;
   z-index: 1;
-  min-width: 44px;
-  padding: 0 8px;
+  min-width: var(--btn-height-md);
+  padding: 0 var(--space-2);
   border: none;
-  border-radius: var(--radius-7);
+  border-radius: var(--radius-md);
   background: transparent;
   color: var(--label-secondary);
   cursor: pointer;
@@ -110,10 +110,5 @@ function onSelect(index) {
 .ios-segment.ios-segment-active {
   color: var(--label-primary);
   font-weight: var(--weight-semibold);
-}
-
-[data-theme="dark"] .ios-segment-indicator {
-  background: var(--pill-indicator-bg-dark-alt);
-  box-shadow: none;
 }
 </style>

@@ -43,9 +43,9 @@ defineProps({
 }
 
 /* ---- Sizes ---- */
-.ios-chip-sm  { padding: 4px 10px; font-size: var(--text-caption1);  line-height: var(--lh-caption1); }
-.ios-chip-md  { padding: 6px 14px; font-size: var(--text-footnote);  line-height: var(--lh-footnote); }
-.ios-chip-lg  { padding: 8px 18px; font-size: var(--text-subheadline); line-height: var(--lh-subheadline); }
+.ios-chip-sm  { padding: var(--space-1) var(--space-3); font-size: var(--text-caption1);  line-height: var(--lh-caption1); }
+.ios-chip-md  { padding: var(--space-2) var(--space-4); font-size: var(--text-footnote);  line-height: var(--lh-footnote); }
+.ios-chip-lg  { padding: var(--space-2) var(--space-5); font-size: var(--text-subheadline); line-height: var(--lh-subheadline); }
 
 /* ---- Hover (non-active) ---- */
 .ios-chip:not(.ios-chip-active):hover {

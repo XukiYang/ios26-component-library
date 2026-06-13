@@ -74,8 +74,8 @@ function increment() {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 32px;
+  width: var(--stepper-btn-w);
+  height: var(--stepper-btn-h);
   border: none;
   background: transparent;
   color: var(--color-blue);

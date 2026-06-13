@@ -67,8 +67,8 @@ function onChange(e) {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 22px;
-  height: 22px;
+  width: var(--checkbox-size);
+  height: var(--checkbox-size);
   border-radius: var(--radius-sm);
   border: 2px solid var(--label-tertiary);
   background: transparent;

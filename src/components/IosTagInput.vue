@@ -138,7 +138,7 @@ onBeforeUnmount(() => document.removeEventListener('mousedown', handleClickOutsi
   top: 100%;
   left: 0;
   right: 0;
-  margin-top: 2px;
+  margin-top: var(--space-1);
   background: var(--bg-primary);
   border: var(--separator-height) solid var(--separator);
   border-radius: var(--radius-md);
@@ -156,7 +156,7 @@ onBeforeUnmount(() => document.removeEventListener('mousedown', handleClickOutsi
   font-size: var(--text-subheadline);
   color: var(--label-primary);
   cursor: pointer;
-  transition: background-color 0.1s;
+  transition: background-color var(--duration-fast);
 }
 
 .ios-tag-input-option:hover,
@@ -170,7 +170,7 @@ onBeforeUnmount(() => document.removeEventListener('mousedown', handleClickOutsi
 
 .ios-tag-input-new-badge {
   font-size: var(--text-caption2);
-  padding: 1px 6px;
+  padding: var(--space-1) var(--space-2);
   border-radius: var(--radius-sm);
   background: color-mix(in srgb, var(--color-blue) 15%, transparent);
   color: var(--color-blue);

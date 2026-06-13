@@ -79,12 +79,12 @@ function select(id) {
   display: flex;
   align-items: center;
   gap: var(--space-3);
-  min-height: 44px;
+  min-height: var(--btn-height-md);
   padding: var(--space-2) var(--space-4);
   cursor: pointer;
   user-select: none;
   -webkit-user-select: none;
-  transition: background-color var(--duration-fast) ease, transform 0.12s ease;
+  transition: background-color var(--duration-fast) ease, transform var(--duration-fast) ease;
   -webkit-tap-highlight-color: transparent;
 }
 

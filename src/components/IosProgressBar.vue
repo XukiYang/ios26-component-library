@@ -76,6 +76,6 @@ const barHeight = computed(() =>
   will-change: transform;
   transition: transform 0.1s linear;
   background: var(--ios-progress-color);
-  box-shadow: 0 0 6px var(--ios-progress-glow);
+  box-shadow: 0 0 var(--space-2) var(--ios-progress-glow);
 }
 </style>

@@ -1,0 +1,52 @@
+{
+  "sprint": 2,
+  "title": "核心组件扁平化重写",
+  "stories": [
+    {
+      "id": "S2-001",
+      "title": "IosSheet 扁平化",
+      "description": "移除 Sheet 的 backdrop-filter 模糊背景，替换为纯色半透明背景 + 头发丝顶部分割线",
+      "status": "done",
+      "acceptance_criteria": [
+        { "id": "S2-001-a", "test": "IosSheet 中无 backdrop-filter 属性", "status": "pass" },
+        { "id": "S2-001-b", "test": "Sheet 背景使用纯色半透明值（如 rgba 白色 0.92+）或纯白", "status": "pass" },
+        { "id": "S2-001-c", "test": "Sheet 顶部有 0.5px 分割线或无分割线（依赖背景对比）", "status": "pass" },
+        { "id": "S2-001-d", "test": "移除 --sheet-bg / --sheet-blur 等专用变量，改用通用 token", "status": "pass" }
+      ]
+    },
+    {
+      "id": "S2-002",
+      "title": "IosAlert 扁平化",
+      "description": "移除 Alert 的模糊背景，改为纯白背景 + 轻投影；双按钮改为水平布局",
+      "status": "done",
+      "acceptance_criteria": [
+        { "id": "S2-002-a", "test": "IosAlert 中无 backdrop-filter 属性", "status": "pass" },
+        { "id": "S2-002-b", "test": "Alert 背景为纯白（light）或纯深色（dark），无透明度", "status": "pass" },
+        { "id": "S2-002-c", "test": "两个 action 按钮时水平排列（flex-direction: row）", "status": "pass" },
+        { "id": "S2-002-d", "test": "Alert 仅有轻投影（shadow-sm 级别），无模糊效果", "status": "pass" }
+      ]
+    },
+    {
+      "id": "S2-003",
+      "title": "IosTabBar 扁平化",
+      "description": "移除 TabBar 的玻璃背景，改为半透明纯色背景 + 顶部分割线",
+      "status": "done",
+      "acceptance_criteria": [
+        { "id": "S2-003-a", "test": "IosTabBar 中无 backdrop-filter 属性", "status": "pass" },
+        { "id": "S2-003-b", "test": "TabBar 背景为半透明纯色（rgba 白色 0.92+）", "status": "pass" },
+        { "id": "S2-003-c", "test": "TabBar 顶部有头发丝分割线（0.5px，separator 颜色）", "status": "pass" }
+      ]
+    },
+    {
+      "id": "S2-004",
+      "title": "IosToolbar 扁平化",
+      "description": "移除 Toolbar 的玻璃背景，改为与 TabBar 一致的扁平风格",
+      "status": "done",
+      "acceptance_criteria": [
+        { "id": "S2-004-a", "test": "IosToolbar 中无 backdrop-filter 属性", "status": "pass" },
+        { "id": "S2-004-b", "test": "Toolbar 背景为半透明纯色", "status": "pass" },
+        { "id": "S2-004-c", "test": "Toolbar 底部有头发丝分割线", "status": "pass" }
+      ]
+    }
+  ]
+}

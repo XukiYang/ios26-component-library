@@ -43,9 +43,7 @@ defineEmits(['click'])
 }
 
 .ios-card--glass {
-  background: var(--glass-large-bg);
-  backdrop-filter: blur(var(--blur-regular));
-  -webkit-backdrop-filter: blur(var(--blur-regular));
+  background: var(--bg-grouped-secondary);
   border: var(--border-hairline) solid var(--separator);
 }
 
@@ -55,7 +53,7 @@ defineEmits(['click'])
 
 .ios-card--elevated {
   background: var(--bg-grouped-secondary);
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-sm);
 }
 
 .ios-card--pressable {

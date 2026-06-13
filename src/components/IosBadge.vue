@@ -48,9 +48,9 @@ const displayValue = computed(() => {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 20px;
-  height: 20px;
-  padding: 0 6px;
+  min-width: var(--badge-height);
+  height: var(--badge-height);
+  padding: 0 var(--space-2);
   border-radius: var(--radius-full);
   font: var(--type-caption2);
   font-weight: var(--weight-semibold);
@@ -60,9 +60,9 @@ const displayValue = computed(() => {
 }
 
 .ios-badge--dot {
-  min-width: 10px;
-  width: 10px;
-  height: 10px;
+  min-width: var(--space-3);
+  width: var(--space-3);
+  height: var(--space-3);
   padding: 0;
 }
 

@@ -112,15 +112,13 @@ const { isDragging: dragging, onPointerDown: onDragStart, onPointerMove: onDragM
   padding: var(--space-2) var(--space-4) var(--space-8);
   max-height: 85vh;
   overflow-y: auto;
-  background: var(--sheet-bg);
-  backdrop-filter: blur(var(--sheet-blur));
-  -webkit-backdrop-filter: blur(var(--sheet-blur));
+  background: var(--bg-primary);
   transform: translateY(100%);
 }
 .ios-sheet-grabber {
-  width: 36px;
-  height: 5px;
-  border-radius: 3px;
+  width: var(--sheet-grabber-w);
+  height: var(--sheet-grabber-h);
+  border-radius: var(--radius-xs);
   background-color: var(--gray-3);
   margin: var(--space-2) auto var(--space-3);
 }
@@ -128,9 +126,6 @@ const { isDragging: dragging, onPointerDown: onDragStart, onPointerMove: onDragM
 .ios-sheet-header h2 {
   font: var(--type-headline);
   margin: 0;
-}
-[data-theme="dark"] .ios-sheet {
-  background: var(--sheet-bg);
 }
 
 .ios-detent-medium .ios-sheet-content { min-height: 40vh; }

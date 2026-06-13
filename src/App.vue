@@ -11,7 +11,7 @@
   <!-- App Shell -->
   <div class="app-shell">
     <!-- Status Bar -->
-    <header class="status-bar liquid-glass-large">
+    <header class="status-bar">
       <div class="toolbar-leading">
         <IosButton variant="plain" size="small" @click="toggleTheme">
           <IosIcon :name="isDark ? 'sun-one' : 'moon'" size="16" />
@@ -30,7 +30,7 @@
       <!-- ============ Preview Tab: Visual Foundation ============ -->
       <template v-if="activeTab === 'preview'">
         <section class="hero">
-          <div class="hero-glass liquid-glass-large">
+          <div class="hero-glass">
             <IosIcon name="apple" size="40" />
             <h1 class="text-large-title emphasized">iOS 26</h1>
             <p class="text-title3 text-secondary">Design System Preview</p>
@@ -49,7 +49,7 @@
         <section class="section">
           <h2 class="section-label text-footnote emphasized text-secondary">System Colors</h2>
           <div class="color-grid">
-            <div v-for="c in systemColors" :key="c.name" class="color-chip liquid-glass-small">
+            <div v-for="c in systemColors" :key="c.name" class="color-chip">
               <div class="color-swatch" :style="{ background: c.css }" />
               <span class="text-caption2">{{ c.name }}</span>
             </div>
@@ -58,7 +58,7 @@
 
         <section class="section">
           <h2 class="section-label text-footnote emphasized text-secondary">Typography</h2>
-          <div class="glass-card liquid-glass-medium">
+          <div class="glass-card">
             <div v-for="t in typeStyles" :key="t.name" class="type-row">
               <span :class="['type-sample', t.class]">{{ t.label }}</span>
               <span class="text-caption2 text-tertiary type-meta">{{ t.name }} · {{ t.size }}</span>
@@ -68,7 +68,7 @@
 
         <section class="section">
           <h2 class="section-label text-footnote emphasized text-secondary">Icons</h2>
-          <div class="glass-card liquid-glass-medium">
+          <div class="glass-card">
             <div class="icon-grid">
               <div v-for="name in iconNames" :key="name" class="icon-demo">
                 <IosIcon :name="name" size="24" />
@@ -80,7 +80,7 @@
 
         <section class="section">
           <h2 class="section-label text-footnote emphasized text-secondary">Avatar</h2>
-          <div class="glass-card liquid-glass-medium" style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+          <div class="glass-card" style="display:flex;align-items:center;gap:var(--space-4);flex-wrap:wrap;">
             <IosAvatar size="sm" initials="A" />
             <IosAvatar size="md" initials="BC" color="var(--color-blue)" />
             <IosAvatar size="lg" initials="JD" color="var(--color-green)" />
@@ -91,7 +91,7 @@
 
         <section class="section">
           <h2 class="section-label text-footnote emphasized text-secondary">Badge</h2>
-          <div class="glass-card liquid-glass-medium" style="display:flex;align-items:center;gap:20px;flex-wrap:wrap;">
+          <div class="glass-card" style="display:flex;align-items:center;gap:var(--space-5);flex-wrap:wrap;">
             <div style="position:relative;display:inline-block;">
               <IosIcon name="comment" size="24" />
               <IosBadge :value="3" style="position:absolute;top:-6px;right:-8px;" />
@@ -108,46 +108,46 @@
 
         <section class="section">
           <h2 class="section-label text-footnote emphasized text-secondary">Card</h2>
-          <div style="display:flex;flex-direction:column;gap:12px;">
+          <div style="display:flex;flex-direction:column;gap:var(--space-3);">
             <IosCard variant="glass">
-              <div style="padding:4px;">
+              <div style="padding:var(--space-1);">
                 <span class="text-headline">Glass Card</span>
-                <p class="text-caption1 text-secondary" style="margin:4px 0 0;">Frosted glass with blur backdrop</p>
+                <p class="text-caption1 text-secondary" style="margin:var(--space-1) 0 0;">Frosted glass with blur backdrop</p>
               </div>
             </IosCard>
             <IosCard variant="solid">
-              <div style="padding:4px;">
+              <div style="padding:var(--space-1);">
                 <span class="text-headline">Solid Card</span>
-                <p class="text-caption1 text-secondary" style="margin:4px 0 0;">Opaque background</p>
+                <p class="text-caption1 text-secondary" style="margin:var(--space-1) 0 0;">Opaque background</p>
               </div>
             </IosCard>
             <IosCard variant="elevated">
-              <div style="padding:4px;">
+              <div style="padding:var(--space-1);">
                 <span class="text-headline">Elevated Card</span>
-                <p class="text-caption1 text-secondary" style="margin:4px 0 0;">Elevated with shadow</p>
+                <p class="text-caption1 text-secondary" style="margin:var(--space-1) 0 0;">Elevated with shadow</p>
               </div>
             </IosCard>
             <IosCard variant="glass" pressable @click="showToast('info')">
-              <div style="padding:4px;">
+              <div style="padding:var(--space-1);">
                 <span class="text-headline">Pressable Card</span>
-                <p class="text-caption1 text-secondary" style="margin:4px 0 0;">Tap me — uses press feedback</p>
+                <p class="text-caption1 text-secondary" style="margin:var(--space-1) 0 0;">Tap me — uses press feedback</p>
               </div>
             </IosCard>
           </div>
         </section>
 
-        <section class="section" style="padding-bottom: 100px;">
+        <section class="section" style="padding-bottom: var(--space-16);">
           <h2 class="section-label text-footnote emphasized text-secondary">Skeleton</h2>
-          <div class="glass-card liquid-glass-medium" style="display:flex;flex-direction:column;gap:12px;">
-            <div style="display:flex;align-items:center;gap:12px;">
+          <div class="glass-card" style="display:flex;flex-direction:column;gap:var(--space-3);">
+            <div style="display:flex;align-items:center;gap:var(--space-3);">
               <IosSkeleton variant="circle" width="44" height="44" />
-              <div style="flex:1;display:flex;flex-direction:column;gap:6px;">
+              <div style="flex:1;display:flex;flex-direction:column;gap:var(--space-2);">
                 <IosSkeleton variant="text" width="60%" />
                 <IosSkeleton variant="text" width="40%" />
               </div>
             </div>
             <IosSkeleton variant="rect" width="100%" height="120" />
-            <div style="display:flex;gap:12px;">
+            <div style="display:flex;gap:var(--space-3);">
               <IosSkeleton variant="rounded" width="100" height="80" />
               <IosSkeleton variant="rounded" width="100" height="80" />
               <IosSkeleton variant="rounded" width="100" height="80" />
@@ -158,9 +158,9 @@
 
       <!-- ============ Controls Tab: Interactive Controls ============ -->
       <template v-if="activeTab === 'controls'">
-        <section class="section" style="padding-top:8px;">
+        <section class="section" style="padding-top:var(--space-2);">
           <h2 class="section-label text-footnote emphasized text-secondary">Buttons</h2>
-          <div class="glass-card liquid-glass-medium">
+          <div class="glass-card">
             <div class="btn-grid">
               <div v-for="v in buttonVariants" :key="v" class="btn-cell">
                 <IosButton :variant="v" size="medium">{{ v }}</IosButton>
@@ -172,7 +172,7 @@
 
         <section class="section">
           <h2 class="section-label text-footnote emphasized text-secondary">Chips</h2>
-          <div class="glass-card liquid-glass-medium" style="display:flex;flex-wrap:wrap;gap:8px;">
+          <div class="glass-card" style="display:flex;flex-wrap:wrap;gap:var(--space-2);">
             <IosChip v-for="(chip, i) in chipData" :key="i" :active="activeChip === i" @click="activeChip = i">
               {{ chip.label }}
             </IosChip>
@@ -182,33 +182,33 @@
 
         <section class="section">
           <h2 class="section-label text-footnote emphasized text-secondary">Controls</h2>
-          <div class="glass-card liquid-glass-medium">
+          <div class="glass-card">
             <IosSegmentedControl :segments="['Day', 'Week', 'Month', 'Year']" v-model="segIndex" />
-            <div style="height:16px" />
+            <div style="height:var(--space-4)" />
             <IosToggle v-model="toggle1" label="Airplane Mode" />
             <div class="separator" />
             <IosToggle v-model="toggle2" label="Wi-Fi" />
             <div class="separator" />
             <IosToggle v-model="toggle3" label="Bluetooth" />
-            <div style="height:16px" />
+            <div style="height:var(--space-4)" />
             <IosSlider v-model="sliderVal" :min="0" :max="100">
               <template #leading><span class="text-caption1">Vol</span></template>
               <template #trailing><span class="text-caption1 text-secondary">{{ sliderVal }}%</span></template>
             </IosSlider>
-            <div style="height:16px" />
-            <div style="display:flex;flex-direction:column;gap:8px;">
+            <div style="height:var(--space-4)" />
+            <div style="display:flex;flex-direction:column;gap:var(--space-2);">
               <IosCheckbox v-model="check1" label="Notifications" />
               <IosCheckbox v-model="check2" label="Location Services" />
               <IosCheckbox label="Disabled" disabled />
             </div>
-            <div style="height:16px" />
-            <div style="display:flex;flex-direction:column;gap:8px;">
+            <div style="height:var(--space-4)" />
+            <div style="display:flex;flex-direction:column;gap:var(--space-2);">
               <IosRadio v-model="radioVal" value="wifi" label="Wi-Fi" name="network" />
               <IosRadio v-model="radioVal" value="cellular" label="Cellular" name="network" />
               <IosRadio v-model="radioVal" value="both" label="Both" name="network" />
             </div>
-            <div style="height:16px" />
-            <div style="display:flex;align-items:center;gap:16px;">
+            <div style="height:var(--space-4)" />
+            <div style="display:flex;align-items:center;gap:var(--space-4);">
               <span class="text-caption1 text-secondary">Quantity</span>
               <IosStepper v-model="stepperVal" :min="0" :max="99" />
             </div>
@@ -217,16 +217,16 @@
 
         <section class="section">
           <h2 class="section-label text-footnote emphasized text-secondary">Inputs</h2>
-          <div class="glass-card liquid-glass-medium">
+          <div class="glass-card">
             <IosTextField v-model="textVal" label="Name" placeholder="Enter your name" leading-icon="user" clearable />
-            <div style="height:12px" />
+            <div style="height:var(--space-3)" />
             <IosSearchBar v-model="searchVal" placeholder="Search..." />
           </div>
         </section>
 
         <section class="section">
           <h2 class="section-label text-footnote emphasized text-secondary">Progress Bar</h2>
-          <div class="glass-card liquid-glass-medium" style="position:relative;padding-top:24px;">
+          <div class="glass-card" style="position:relative;padding-top:var(--space-6);">
             <IosProgressBar :progress="scrollProgress" :fixed="false" />
             <div style="display:flex;justify-content:space-between;align-items:center;">
               <span class="text-caption2 text-secondary">Page scroll progress</span>
@@ -237,12 +237,12 @@
 
         <section class="section">
           <h2 class="section-label text-footnote emphasized text-secondary">Circular Progress</h2>
-          <div class="glass-card liquid-glass-medium" style="display:flex;align-items:center;gap:20px;flex-wrap:wrap;">
+          <div class="glass-card" style="display:flex;align-items:center;gap:var(--space-5);flex-wrap:wrap;">
             <IosCircularProgress :progress="circularVal" :size="72" :stroke-width="7" show-label />
             <IosCircularProgress :progress="circularVal" :size="56" color="var(--color-green)" />
             <IosCircularProgress :progress="circularVal" :size="56" color="var(--color-orange)" />
             <IosCircularProgress :progress="circularVal" :size="56" color="var(--color-red)" />
-            <IosSlider v-model="circularVal" :min="0" :max="100" style="flex:1;min-width:120px;">
+            <IosSlider v-model="circularVal" :min="0" :max="100" style="flex:1;min-width:var(--space-12);">
               <template #trailing><span class="text-caption1 text-secondary">{{ circularVal }}%</span></template>
             </IosSlider>
           </div>
@@ -250,14 +250,14 @@
 
         <section class="section">
           <h2 class="section-label text-footnote emphasized text-secondary">Textarea</h2>
-          <div class="glass-card liquid-glass-medium">
+          <div class="glass-card">
             <IosTextarea v-model="textareaVal" label="Bio" placeholder="Tell us about yourself..." :rows="3" :maxlength="200" />
           </div>
         </section>
 
         <section class="section">
           <h2 class="section-label text-footnote emphasized text-secondary">Date & Time</h2>
-          <div class="glass-card liquid-glass-medium" style="display:flex;flex-direction:column;gap:12px;">
+          <div class="glass-card" style="display:flex;flex-direction:column;gap:var(--space-3);">
             <IosDatePicker v-model="dateVal" label="Birthday" type="date" />
             <IosDatePicker v-model="timeVal" label="Alarm" type="time" />
             <IosDatePicker v-model="datetimeVal" label="Event" type="datetime-local" />
@@ -266,7 +266,7 @@
 
         <section class="section">
           <h2 class="section-label text-footnote emphasized text-secondary">Picker</h2>
-          <div class="glass-card liquid-glass-medium">
+          <div class="glass-card">
             <div style="display:flex;align-items:center;justify-content:space-between;">
               <span class="text-caption1 text-secondary">Selected: {{ pickerResult }}</span>
               <IosButton variant="filled" size="small" @click="pickerOpen = true">Open Picker</IosButton>
@@ -274,9 +274,9 @@
           </div>
         </section>
 
-        <section class="section" style="padding-bottom: 100px;">
+        <section class="section" style="padding-bottom: var(--space-16);">
           <h2 class="section-label text-footnote emphasized text-secondary">Action Sheet</h2>
-          <div class="glass-card liquid-glass-medium" style="display:flex;gap:8px;">
+          <div class="glass-card" style="display:flex;gap:var(--space-2);">
             <IosButton variant="filled" size="small" @click="actionSheetOpen = true">Show Actions</IosButton>
           </div>
         </section>
@@ -284,9 +284,9 @@
 
       <!-- ============ Navigation Tab: Navigation & Lists ============ -->
       <template v-if="activeTab === 'navigation'">
-        <section class="section" style="padding-top:8px;">
+        <section class="section" style="padding-top:var(--space-2);">
           <h2 class="section-label text-footnote emphasized text-secondary">Capsule Group</h2>
-          <div class="glass-card liquid-glass-medium" style="display:flex;flex-direction:column;gap:12px;">
+          <div class="glass-card" style="display:flex;flex-direction:column;gap:var(--space-3);">
             <IosCapsuleGroup v-model="capsule1" :options="['For You', 'Browse', 'Radio', 'Library']" />
             <IosCapsuleGroup v-model="capsule2" :options="['Day', 'Week', 'Month']" />
             <IosCapsuleGroup v-model="capsule3" :options="['Music', 'Podcasts']" />
@@ -328,11 +328,11 @@
           <IosActionBar :items="actionItems" @change="onActionSelect" />
         </section>
 
-        <section class="section" style="padding-bottom: 100px;">
+        <section class="section" style="padding-bottom: var(--space-16);">
           <h2 class="section-label text-footnote emphasized text-secondary">Pagination</h2>
-          <div class="glass-card liquid-glass-medium">
+          <div class="glass-card">
             <IosPagination v-model="currentPage" :total="85" :page-size="10" :max-visible="7" />
-            <div style="text-align:center;margin-top:8px;">
+            <div style="text-align:center;margin-top:var(--space-2);">
               <span class="text-caption2 text-secondary">Page {{ currentPage }} of 9</span>
             </div>
           </div>
@@ -341,12 +341,12 @@
 
       <!-- ============ More Tab: Feedback & Settings ============ -->
       <template v-if="activeTab === 'more'">
-        <section class="section" style="padding-top:8px;">
+        <section class="section" style="padding-top:var(--space-2);">
           <h2 class="section-label text-footnote emphasized text-secondary">Charts</h2>
-          <div class="glass-card liquid-glass-medium" style="display:flex;flex-direction:column;gap:16px;">
+          <div class="glass-card" style="display:flex;flex-direction:column;gap:var(--space-4);">
             <IosChart type="line" :data="lineData" height="200px" />
             <IosChart type="bar" :data="barData" height="200px" />
-            <div style="display:flex;gap:16px;">
+            <div style="display:flex;gap:var(--space-4);">
               <IosChart type="doughnut" :data="pieData" height="180px" />
               <IosChart type="radar" :data="radarData" height="180px" />
             </div>
@@ -355,16 +355,16 @@
 
         <section class="section">
           <h2 class="section-label text-footnote emphasized text-secondary">Overlays</h2>
-          <div class="glass-card liquid-glass-medium" style="display:flex;gap:8px;align-items:center;">
+          <div class="glass-card" style="display:flex;gap:var(--space-2);align-items:center;">
             <IosButton variant="filled" @click="alertOpen = true">Alert</IosButton>
-            <IosButton variant="liquid-glass" @click="sheetOpen = true">Sheet</IosButton>
+            <IosButton variant="plain" @click="sheetOpen = true">Sheet</IosButton>
             <IosButton variant="tinted" @click="onConfirm">Confirm</IosButton>
           </div>
         </section>
 
         <section class="section">
           <h2 class="section-label text-footnote emphasized text-secondary">Toast</h2>
-          <div class="glass-card liquid-glass-medium" style="display:flex;gap:8px;flex-wrap:wrap;">
+          <div class="glass-card" style="display:flex;gap:var(--space-2);flex-wrap:wrap;">
             <IosButton variant="filled" @click="showToast('success')">Success</IosButton>
             <IosButton variant="tinted" @click="showToast('error')">Error</IosButton>
             <IosButton variant="gray" @click="showToast('warning')">Warning</IosButton>
@@ -374,7 +374,7 @@
 
         <section class="section">
           <h2 class="section-label text-footnote emphasized text-secondary">Empty State</h2>
-          <div class="glass-card liquid-glass-medium">
+          <div class="glass-card">
             <IosEmptyState icon="hourglass-null" title="No Content" description="Your content will appear here once available." action-text="Refresh" @action="console.log('refresh')" />
           </div>
         </section>
@@ -384,9 +384,9 @@
           <IosErrorView title="Something Went Wrong" message="The operation couldn't be completed. Please try again." @retry="console.log('retry')" @go-home="console.log('home')" />
         </section>
 
-        <section class="section" style="padding-bottom: 100px;">
+        <section class="section" style="padding-bottom: var(--space-16);">
           <h2 class="section-label text-footnote emphasized text-secondary">Settings</h2>
-          <div class="glass-card liquid-glass-medium">
+          <div class="glass-card">
             <IosListSection>
               <IosListRow>
                 <template #leading><IosIcon :name="isDark ? 'moon' : 'sun-one'" size="20" /></template>
@@ -400,7 +400,7 @@
               <IosListRow separator disclosure>
                 <template #leading><IosIcon name="editor" size="20" /></template>
                 Font
-                <template #trailing>HarmonyOS Sans</template>
+                <template #trailing>Inter</template>
               </IosListRow>
               <IosListRow disclosure>
                 <template #leading><IosIcon name="setting-one" size="20" /></template>
@@ -419,7 +419,7 @@
     </main>
 
     <!-- Bottom Tab Bar -->
-    <nav class="tabbar-custom liquid-glass-large">
+    <nav class="tabbar-custom">
       <button v-for="t in tabItems" :key="t.id"
         class="tab-item-custom"
         :class="{ active: activeTab === t.id }"
@@ -466,7 +466,7 @@
 
   <IosFloatingActionButton v-model:expanded="fabExpanded" position="bottom-right" :offset-x="20" :offset-y="80" :z-index="200">
     <template #actions>
-      <div style="display:flex;flex-direction:column;gap:4px;padding:4px;">
+      <div style="display:flex;flex-direction:column;gap:var(--space-1);padding:var(--space-1);">
         <IosButton variant="plain" size="small" @click="onFabAction('New Document')">New Document</IosButton>
         <IosButton variant="plain" size="small" @click="onFabAction('Import')">Import</IosButton>
       </div>
@@ -623,7 +623,7 @@ const iconNames = [
 ]
 
 /* ---- Controls data ------------------------------------------------------- */
-const buttonVariants = ['filled', 'gray', 'tinted', 'plain', 'liquid-glass']
+const buttonVariants = ['filled', 'gray', 'tinted', 'plain']
 
 const chipData = [
   { label: 'Swift' },
@@ -812,12 +812,14 @@ function onFabAction(label) {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 52px;
-  padding: 0 16px;
+  height: var(--space-12);
+  padding: 0 var(--space-4);
   flex-shrink: 0;
   z-index: 50;
+  background: var(--toolbar-bg);
+  border-bottom: var(--separator-height) solid var(--separator);
 }
-.toolbar-leading, .toolbar-trailing { display: flex; gap: var(--space-2); min-width: 60px; }
+.toolbar-leading, .toolbar-trailing { display: flex; gap: var(--space-2); min-width: var(--space-16); }
 .toolbar-trailing { justify-content: flex-end; }
 .toolbar-title { flex: 1; text-align: center; }
 
@@ -826,32 +828,34 @@ function onFabAction(label) {
   flex: 1;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
-  padding: 0 0 20px;
+  padding: 0 0 var(--space-5);
 }
 
 /* ===== Hero ===== */
 .hero {
-  padding: 24px 16px 16px;
+  padding: var(--space-6) var(--space-4) var(--space-4);
   text-align: center;
 }
 .hero-glass {
   display: inline-flex;
   flex-direction: column;
   align-items: center;
-  gap: 4px;
-  padding: 32px 48px;
-  border-radius: 28px;
+  gap: var(--space-1);
+  padding: var(--space-8) var(--space-12);
+  border-radius: var(--space-7);
+  background: var(--bg-grouped-secondary);
+  border: var(--separator-height) solid var(--separator);
 }
 /* ===== Sections ===== */
-.section { padding: 0 12px 12px; }
-.section-label { padding: 0 8px 8px; }
+.section { padding: 0 var(--space-3) var(--space-3); }
+.section-label { padding: 0 var(--space-2) var(--space-2); }
 
 /* ===== Materials Row ===== */
 .materials-row {
   display: flex;
-  gap: 6px;
+  gap: var(--space-2);
   overflow-x: auto;
-  padding: 0 4px 8px;
+  padding: 0 var(--space-1) var(--space-2);
   scrollbar-width: none;
 }
 .materials-row::-webkit-scrollbar { display: none; }
@@ -860,36 +864,38 @@ function onFabAction(label) {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 10px 14px;
-  border-radius: 10px;
-  min-width: 72px;
-  min-height: 44px;
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-lg);
+  min-width: var(--space-16);
+  min-height: var(--btn-height-md);
 }
 
 /* ===== Color Grid ===== */
 .color-grid {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  gap: 6px;
+  gap: var(--space-2);
 }
 .color-chip {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4px;
-  padding: 8px 4px;
-  border-radius: 10px;
+  gap: var(--space-1);
+  padding: var(--space-2) var(--space-1);
+  border-radius: var(--radius-lg);
+  background: var(--bg-grouped-secondary);
 }
 .color-swatch {
-  width: 32px; height: 32px;
-  border-radius: 8px;
-  box-shadow: inset 0 0 0 0.5px rgba(0,0,0,0.08);
+  width: var(--space-8); height: var(--space-8);
+  border-radius: var(--radius-sm);
+  box-shadow: inset 0 0 0 var(--border-hairline) rgba(0,0,0,0.08);
 }
 
 /* ===== Glass Card ===== */
 .glass-card {
-  padding: 14px;
-  border-radius: 16px;
+  padding: var(--space-4);
+  border-radius: var(--radius-2xl);
+  background: var(--bg-grouped-secondary);
 }
 
 /* ===== Typography Rows ===== */
@@ -897,73 +903,75 @@ function onFabAction(label) {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-  padding: 6px 0;
-  border-bottom: 0.5px solid var(--separator);
+  padding: var(--space-2) 0;
+  border-bottom: var(--separator-height) solid var(--separator);
 }
 .type-row:last-child { border-bottom: none; }
-.type-meta { min-width: 80px; text-align: right; }
+.type-meta { min-width: var(--space-16); text-align: right; }
 
 /* ===== Button Grid ===== */
 .btn-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: var(--space-2);
   align-items: center;
 }
 .btn-cell {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2px;
+  gap: var(--space-1);
 }
 
 /* ===== Icon Grid ===== */
 .icon-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(72px, 1fr));
-  gap: 12px;
+  grid-template-columns: repeat(auto-fill, minmax(var(--space-16), 1fr));
+  gap: var(--space-3);
 }
 .icon-demo {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4px;
-  padding: 8px 4px;
+  gap: var(--space-1);
+  padding: var(--space-2) var(--space-1);
   text-align: center;
 }
 
 /* ===== Separator ===== */
-.separator { height: 0.5px; background: var(--separator); margin: 0; }
+.separator { height: var(--separator-height); background: var(--separator); margin: 0; }
 
 /* ===== Tab Bar ===== */
 .tabbar-custom {
   display: flex;
   align-items: flex-start;
   justify-content: space-around;
-  padding: 6px 0 8px;
+  padding: var(--space-2) 0 var(--space-2);
   flex-shrink: 0;
   z-index: 50;
-  margin: 0 8px 8px;
-  border-radius: 20px;
+  margin: 0 var(--space-2) var(--space-2);
+  border-radius: var(--radius-xl);
+  background: var(--tabbar-bg);
+  border: var(--separator-height) solid var(--separator);
 }
 .tab-item-custom {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2px;
+  gap: var(--space-1);
   background: none;
   border: none;
   color: var(--label-secondary);
   cursor: pointer;
-  padding: 4px 12px;
-  border-radius: 10px;
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-lg);
   transition: color var(--duration-normal);
   font-family: var(--font-family);
   -webkit-tap-highlight-color: transparent;
 }
 .tab-item-custom.active { color: var(--color-blue); }
 
-.bottom-spacer { height: 60px; }
+.bottom-spacer { height: var(--space-16); }
 
 /* ---- Tab Slide Transition ---- */
 .tab-slide-left-enter-active,
@@ -974,20 +982,20 @@ function onFabAction(label) {
 }
 
 .tab-slide-left-enter-from {
-  transform: translateX(40px);
+  transform: translateX(var(--space-10));
   opacity: 0;
 }
 .tab-slide-left-leave-to {
-  transform: translateX(-40px);
+  transform: translateX(calc(-1 * var(--space-10)));
   opacity: 0;
 }
 
 .tab-slide-right-enter-from {
-  transform: translateX(-40px);
+  transform: translateX(calc(-1 * var(--space-10)));
   opacity: 0;
 }
 .tab-slide-right-leave-to {
-  transform: translateX(40px);
+  transform: translateX(var(--space-10));
   opacity: 0;
 }
 

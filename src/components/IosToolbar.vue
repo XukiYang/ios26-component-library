@@ -43,8 +43,7 @@ const collapsed = computed(() => props.scrollY > 44)
   top: 0;
   z-index: 100;
   background: var(--toolbar-bg);
-  backdrop-filter: blur(var(--toolbar-blur));
-  -webkit-backdrop-filter: blur(var(--toolbar-blur));
+  border-bottom: var(--separator-height) solid var(--separator);
 }
 .ios-toolbar-title {
   font: var(--type-headline);
@@ -52,15 +51,8 @@ const collapsed = computed(() => props.scrollY > 44)
 .ios-toolbar-leading,
 .ios-toolbar-trailing { display: flex; gap: var(--space-2); min-width: 60px; }
 .ios-toolbar-trailing { justify-content: flex-end; }
-.ios-toolbar.ios-collapsed {
-  box-shadow: 0 0.5px 0 0 var(--separator);
-}
 .ios-toolbar-large-title {
   padding: 0 var(--space-4) var(--space-2);
   font: var(--type-large-title);
-}
-
-[data-theme="dark"] .ios-toolbar {
-  background: var(--toolbar-bg);
 }
 </style>

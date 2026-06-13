@@ -68,8 +68,8 @@ defineEmits(['action'])
 .ios-empty-state-icon {
   margin-bottom: var(--space-4);
   opacity: var(--opacity-disabled);
-  width: 48px;
-  height: 48px;
+  width: var(--space-12);
+  height: var(--space-12);
   display: flex;
   align-items: center;
   justify-content: center;

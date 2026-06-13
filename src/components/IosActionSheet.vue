@@ -129,9 +129,7 @@ onUnmounted(() => {
 }
 
 .ios-action-sheet-header {
-  background: var(--glass-large-bg);
-  backdrop-filter: blur(var(--blur-regular));
-  -webkit-backdrop-filter: blur(var(--blur-regular));
+  background: var(--bg-grouped-secondary);
   border-radius: var(--radius-xl);
   padding: var(--space-4);
   text-align: center;
@@ -150,9 +148,7 @@ onUnmounted(() => {
 }
 
 .ios-action-sheet-actions {
-  background: var(--glass-large-bg);
-  backdrop-filter: blur(var(--blur-regular));
-  -webkit-backdrop-filter: blur(var(--blur-regular));
+  background: var(--bg-grouped-secondary);
   border-radius: var(--radius-xl);
   overflow: hidden;
 }
@@ -190,9 +186,7 @@ onUnmounted(() => {
 }
 
 .ios-action-sheet-btn--cancel-bold {
-  background: var(--glass-large-bg);
-  backdrop-filter: blur(var(--blur-regular));
-  -webkit-backdrop-filter: blur(var(--blur-regular));
+  background: var(--bg-grouped-secondary);
   border-radius: var(--radius-xl);
   font-weight: var(--weight-semibold);
   color: var(--color-blue);

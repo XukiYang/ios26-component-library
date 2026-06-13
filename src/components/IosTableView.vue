@@ -122,7 +122,7 @@ function rowIndentStyle(item) {
   const level = item.level || 0
   const indent = item.indent !== undefined ? item.indent : level * 16
   if (indent > 0) {
-    return { paddingLeft: indent + 'px' }
+    return { paddingLeft: `${indent}px` }
   }
   return {}
 }
@@ -216,7 +216,6 @@ function rowIndentStyle(item) {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 1px;
 }
 
 .ios-table-view-label {

@@ -213,11 +213,9 @@ watch(
   max-height: 240px;
   overflow-y: auto;
   background: var(--fill-secondary);
-  backdrop-filter: blur(var(--tabbar-blur));
-  -webkit-backdrop-filter: blur(var(--tabbar-blur));
   border-radius: var(--radius-xl);
   border: var(--border-hairline) solid var(--separator);
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-sm);
   padding: var(--space-1);
   opacity: 0;
   transform: translateY(8px) scale(0.95);
@@ -246,13 +244,11 @@ watch(
 
 /* ---- Main FAB button ---- */
 .ios-fab-btn {
-  width: 44px;
-  height: 44px;
+  width: var(--btn-height-md);
+  height: var(--btn-height-md);
   border-radius: 50%;
   border: var(--border-hairline) solid var(--separator);
   background: var(--fill-secondary);
-  backdrop-filter: blur(var(--tabbar-blur));
-  -webkit-backdrop-filter: blur(var(--tabbar-blur));
   box-shadow: var(--shadow-md);
   display: flex;
   align-items: center;
@@ -274,12 +270,12 @@ watch(
 /* Expanded state */
 .ios-fab-btn-active {
   background: var(--fill-primary);
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-sm);
 }
 
 /* ---- Panel scrollbar ---- */
 .ios-fab-actions-panel::-webkit-scrollbar {
-  width: 3px;
+  width: var(--space-1);
 }
 
 .ios-fab-actions-panel::-webkit-scrollbar-thumb {

@@ -115,8 +115,8 @@ function onClear() {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 20px;
-  height: 20px;
+  width: var(--space-5);
+  height: var(--space-5);
   border: none;
   border-radius: 50%;
   background: var(--fill-tertiary);

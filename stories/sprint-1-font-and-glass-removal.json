@@ -1,0 +1,41 @@
+{
+  "sprint": 1,
+  "title": "字体切换与全局玻璃效果移除",
+  "stories": [
+    {
+      "id": "S1-001",
+      "title": "引入 Inter 字体并替换全局字体栈",
+      "description": "用 Inter 替换 HarmonyOS Sans 作为主字体，更新 tokens.css 中的 --font-family 和所有 --type-* 简写",
+      "status": "done",
+      "acceptance_criteria": [
+        { "id": "S1-001-a", "test": "tokens.css 中 --font-family 的主字体为 Inter", "status": "pass" },
+        { "id": "S1-001-b", "test": "Inter 字体通过 @font-face 或 Google Fonts/npm 正确引入", "status": "pass" },
+        { "id": "S1-001-c", "test": "font.css 中 HarmonyOS_Sans 相关 @font-face 声明已移除或注释", "status": "pass" },
+        { "id": "S1-001-d", "test": "所有 --type-* 简写变量中的字体族已更新为 Inter", "status": "pass" }
+      ]
+    },
+    {
+      "id": "S1-002",
+      "title": "移除全局 Liquid Glass 工具类和玻璃相关 token",
+      "description": "删除 base.css 中的 .liquid-glass-* 工具类，清理 tokens.css 中的玻璃专用变量",
+      "status": "done",
+      "acceptance_criteria": [
+        { "id": "S1-002-a", "test": "base.css 中不存在 .liquid-glass-large / .liquid-glass-medium / .liquid-glass-small 类", "status": "pass" },
+        { "id": "S1-002-b", "test": "tokens.css 中 --glass-large-bg / --glass-small-bg / --glass-clear-bg 变量已移除", "status": "pass" },
+        { "id": "S1-002-c", "test": "tokens.css 中 --blur-* 系列变量已移除", "status": "pass" },
+        { "id": "S1-002-d", "test": "项目中无任何组件引用被删除的 glass/blur 变量（grep 无结果）", "status": "pass" }
+      ]
+    },
+    {
+      "id": "S1-003",
+      "title": "App.vue 移除玻璃效果引用",
+      "description": "更新 App.vue 中引用 liquid-glass 类和 blur 变量的地方，替换为扁平背景",
+      "status": "done",
+      "acceptance_criteria": [
+        { "id": "S1-003-a", "test": "App.vue 中无 liquid-glass 类引用", "status": "pass" },
+        { "id": "S1-003-b", "test": "App.vue 中无 backdrop-filter: blur 属性", "status": "pass" },
+        { "id": "S1-003-c", "test": "npm run build 无报错", "status": "pass" }
+      ]
+    }
+  ]
+}

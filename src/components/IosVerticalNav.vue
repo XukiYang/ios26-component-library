@@ -67,9 +67,7 @@ function onSelect(item) {
   flex-direction: column;
   width: 220px;
   min-height: 100vh;
-  background: var(--glass-large-bg);
-  backdrop-filter: blur(var(--blur-regular));
-  -webkit-backdrop-filter: blur(var(--blur-regular));
+  background: var(--bg-grouped-secondary);
   border-right: var(--separator-height) solid var(--separator);
   flex-shrink: 0;
 }
@@ -108,7 +106,7 @@ function onSelect(item) {
   cursor: pointer;
   transition: background-color var(--duration-fast), color var(--duration-fast);
   border-left: 3px solid transparent;
-  margin-bottom: 2px;
+  margin-bottom: var(--space-1);
 }
 
 .ios-vertical-nav-item:hover {

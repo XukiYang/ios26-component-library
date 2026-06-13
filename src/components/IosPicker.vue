@@ -242,9 +242,7 @@ onUnmounted(() => {
 
 .ios-picker {
   width: 100%;
-  background: var(--sheet-bg);
-  backdrop-filter: blur(var(--sheet-blur));
-  -webkit-backdrop-filter: blur(var(--sheet-blur));
+  background: var(--bg-primary);
   border-radius: var(--radius-xl) var(--radius-xl) 0 0;
   overflow: hidden;
   transform: translateY(100%);
@@ -304,12 +302,12 @@ onUnmounted(() => {
 
 .ios-picker-wheel::before {
   top: 0;
-  background: linear-gradient(to bottom, var(--sheet-bg), transparent);
+  background: linear-gradient(to bottom, var(--bg-primary), transparent);
 }
 
 .ios-picker-wheel::after {
   bottom: 0;
-  background: linear-gradient(to top, var(--sheet-bg), transparent);
+  background: linear-gradient(to top, var(--bg-primary), transparent);
 }
 
 .ios-picker-wheel-inner {
@@ -318,7 +316,7 @@ onUnmounted(() => {
 }
 
 .ios-picker-option {
-  height: 44px;
+  height: var(--btn-height-md);
   display: flex;
   align-items: center;
   justify-content: center;

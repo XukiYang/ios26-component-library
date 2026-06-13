@@ -77,5 +77,9 @@ function onInput(e) {
   box-shadow: var(--shadow-thumb);
   cursor: pointer;
   border: none;
+  transition: transform var(--duration-fast) var(--ease-spring);
+}
+.ios-slider::-webkit-slider-thumb:active {
+  transform: scale(1.15);
 }
 </style>

@@ -100,9 +100,8 @@ function onAction(action) {
   border-radius: var(--radius-xl);
   padding: var(--space-6);
   text-align: center;
-  background: var(--glass-large-bg);
-  backdrop-filter: blur(var(--blur-regular));
-  -webkit-backdrop-filter: blur(var(--blur-regular));
+  background: var(--bg-grouped-secondary);
+  box-shadow: var(--shadow-sm);
   transform: scale(0.9);
   opacity: 0;
 }
@@ -111,9 +110,10 @@ function onAction(action) {
 .ios-alert-content p { margin: 0; }
 .ios-alert-actions {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: var(--space-2);
 }
+.ios-alert-actions :deep(.ios-btn) { flex: 1; }
 h2 {
   font: var(--type-headline);
 }

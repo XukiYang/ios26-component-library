@@ -62,10 +62,10 @@ const iconSize = computed(() => {
   position: relative;
 }
 
-.ios-avatar--sm { width: 28px; height: 28px; }
+.ios-avatar--sm { width: var(--space-7); height: var(--space-7); }
 .ios-avatar--md { width: 36px; height: 36px; }
-.ios-avatar--lg { width: 48px; height: 48px; }
-.ios-avatar--xl { width: 64px; height: 64px; }
+.ios-avatar--lg { width: var(--space-12); height: var(--space-12); }
+.ios-avatar--xl { width: var(--space-16); height: var(--space-16); }
 
 .ios-avatar-img {
   width: 100%;

@@ -50,7 +50,7 @@ const style = computed(() => ({
 }
 
 .ios-skeleton--text {
-  height: 16px;
+  height: var(--space-4);
   border-radius: var(--radius-xs);
 }
 
@@ -77,15 +77,6 @@ const style = computed(() => ({
     transparent 100%
   );
   animation: ios-skeleton-shimmer 1.5s infinite;
-}
-
-[data-theme="dark"] .ios-skeleton--animated::after {
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(255, 255, 255, 0.08) 50%,
-    transparent 100%
-  );
 }
 
 @keyframes ios-skeleton-shimmer {

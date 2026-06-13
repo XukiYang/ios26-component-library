@@ -41,10 +41,8 @@ const { toasts, removeToast } = useToast()
   padding: var(--space-3) var(--space-4);
   border-radius: var(--radius-lg);
   background-color: var(--fill-primary);
-  backdrop-filter: blur(var(--blur-regular));
-  -webkit-backdrop-filter: blur(var(--blur-regular));
   border: var(--border-hairline) solid var(--separator);
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-sm);
   pointer-events: auto;
   transition: background-color var(--duration-slow);
 }
@@ -52,8 +50,8 @@ const { toasts, removeToast } = useToast()
 /* ---- Indicator bar ------------------------------------------------------ */
 .ios-toast-indicator {
   flex-shrink: 0;
-  width: 3px;
-  height: 24px;
+  width: var(--space-1);
+  height: var(--space-6);
   border-radius: var(--radius-xs);
   background-color: var(--color-blue);
 }
@@ -88,8 +86,8 @@ const { toasts, removeToast } = useToast()
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 24px;
-  height: 24px;
+  width: var(--space-6);
+  height: var(--space-6);
   padding: 0;
   border: none;
   border-radius: 50%;
@@ -117,12 +115,12 @@ const { toasts, removeToast } = useToast()
 
 .ios-toast-enter-from {
   opacity: 0;
-  transform: translateX(60px);
+  transform: translateX(var(--space-16));
 }
 
 .ios-toast-leave-to {
   opacity: 0;
-  transform: translateX(60px);
+  transform: translateX(var(--space-16));
 }
 
 .ios-toast-move {
