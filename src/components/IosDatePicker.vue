@@ -74,7 +74,7 @@ function onInput(e) {
   color: var(--label-primary);
   font: var(--type-body);
   box-shadow: inset 0 0 0 0 transparent;
-  transition: box-shadow var(--duration-normal) ease;
+  transition: box-shadow var(--duration-normal) var(--ease-default);
   -webkit-appearance: none;
 }
 
@@ -88,7 +88,17 @@ function onInput(e) {
 }
 
 .ios-date-picker-input::-webkit-calendar-picker-indicator {
-  filter: invert(var(--opacity-muted));
+  filter: invert(0.5);
   cursor: pointer;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .ios-date-picker-input::-webkit-calendar-picker-indicator {
+    filter: invert(0.8);
+  }
+}
+
+:root[data-theme="dark"] .ios-date-picker-input::-webkit-calendar-picker-indicator {
+  filter: invert(0.8);
 }
 </style>

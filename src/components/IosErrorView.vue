@@ -83,7 +83,7 @@ defineEmits(['retry', 'go-home'])
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 400px;
+  min-height: min(400px, 60vh);
   padding: var(--space-10) var(--space-6);
   text-align: center;
 }
@@ -91,8 +91,8 @@ defineEmits(['retry', 'go-home'])
 .ios-error-view-icon {
   margin-bottom: var(--space-6);
   opacity: var(--opacity-subtle);
-  width: 56px;
-  height: 56px;
+  width: var(--space-12);
+  height: var(--space-12);
   display: flex;
   align-items: center;
   justify-content: center;

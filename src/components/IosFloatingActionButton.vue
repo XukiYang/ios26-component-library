@@ -93,7 +93,7 @@ watch(() => props.expanded, (open) => {
   }
 })
 
-const fabSize = ref(window.innerWidth <= 768 ? 56 : 44)
+const fabSize = ref(window.innerWidth <= 768 ? 56 : 46)
 
 const posX = ref(0)
 const posY = ref(0)
@@ -168,7 +168,7 @@ const { isDragging: dragging, onPointerDown, onPointerMove, onPointerUp } = useD
 })
 
 function onResize() {
-  fabSize.value = window.innerWidth <= 768 ? 56 : 44
+  fabSize.value = window.innerWidth <= 768 ? 56 : 46
   clampToViewport()
 }
 
@@ -195,7 +195,7 @@ watch(
 /* ---- Container (fixed-position anchor) ---- */
 .ios-fab {
   position: fixed;
-  width: 44px;
+  width: var(--btn-height-md);
   -webkit-tap-highlight-color: transparent;
   user-select: none;
 }
@@ -246,7 +246,7 @@ watch(
 .ios-fab-btn {
   width: var(--btn-height-md);
   height: var(--btn-height-md);
-  border-radius: 50%;
+  border-radius: var(--radius-full);
   border: var(--border-hairline) solid var(--separator);
   background: var(--fill-secondary);
   box-shadow: var(--shadow-md);
@@ -260,6 +260,9 @@ watch(
   padding: 0;
   outline: none;
   -webkit-tap-highlight-color: transparent;
+}
+.ios-fab-btn:focus-visible {
+  box-shadow: var(--focus-ring);
 }
 
 /* Active press */

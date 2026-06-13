@@ -70,7 +70,7 @@ function onChange() {
   justify-content: center;
   width: var(--checkbox-size);
   height: var(--checkbox-size);
-  border-radius: 50%;
+  border-radius: var(--radius-full);
   border: 2px solid var(--label-tertiary);
   background: transparent;
   transition: all var(--duration-fast) var(--ease-default);
@@ -78,15 +78,15 @@ function onChange() {
 }
 
 .ios-radio-input:checked + .ios-radio-indicator {
-  border-color: var(--accent-blue);
+  border-color: var(--color-blue);
 }
 
 .ios-radio-input:checked + .ios-radio-indicator::after {
   content: '';
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: var(--accent-blue);
+  width: calc(var(--checkbox-size) * 0.6);
+  height: calc(var(--checkbox-size) * 0.6);
+  border-radius: var(--radius-full);
+  background: var(--color-blue);
 }
 
 .ios-radio-input:focus-visible + .ios-radio-indicator {

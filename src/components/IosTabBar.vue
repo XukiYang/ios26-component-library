@@ -64,12 +64,10 @@ function onSelect(id) {
   padding: var(--space-1) var(--space-3);
   -webkit-tap-highlight-color: transparent;
 }
+.ios-tabbar-item:focus-visible { box-shadow: var(--focus-ring); }
 .ios-tabbar-item.ios-tabbar-active { color: var(--color-blue); }
 .ios-tabbar-icon { font-size: var(--tab-icon-size); line-height: 1; }
 .ios-tabbar-label {
-  font-family: var(--font-family);
-  font-size: var(--text-caption2);
-  line-height: var(--lh-caption2);
-  letter-spacing: var(--ls-caption2);
+  font: var(--type-caption2);
 }
 </style>

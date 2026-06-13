@@ -15,6 +15,7 @@
  * @prop {Object} data - Chart.js data object ({ labels, datasets })
  * @prop {Object} [options] - Chart.js options (merged with iOS defaults)
  * @prop {string} [height='300px'] - Container height
+ * @prop {string} [theme] - Theme key (pass isDark) to force re-render on theme change
  */
 import { computed, watch, ref } from 'vue'
 import { Line, Bar, Pie, Doughnut, Radar } from 'vue-chartjs'
@@ -56,6 +57,7 @@ const props = defineProps({
   data: { type: Object, required: true },
   options: { type: Object, default: () => ({}) },
   height: { type: String, default: '300px' },
+  theme: String,
 })
 
 const chartComponent = computed(() => {
@@ -65,9 +67,15 @@ const chartComponent = computed(() => {
 
 function resolveCssVar(value) {
   if (typeof value !== 'string') return value
-  if (!value.startsWith('var(')) return value
-  const varName = value.slice(4, -1).trim()
-  return getComputedStyle(document.documentElement).getPropertyValue(varName).trim() || value
+  if (value.startsWith('var(') || value.startsWith('color-mix(')) {
+    const el = document.createElement('div')
+    el.style.color = value
+    document.body.appendChild(el)
+    const resolved = getComputedStyle(el).color
+    document.body.removeChild(el)
+    if (resolved && resolved !== value) return resolved
+  }
+  return value
 }
 
 function resolveDataColors(data) {
@@ -102,22 +110,25 @@ function getThemeColors() {
     teal: cs.getPropertyValue('--color-teal').trim() || '#00c3d0',
     pink: cs.getPropertyValue('--color-pink').trim() || '#ff2d55',
     indigo: cs.getPropertyValue('--color-indigo').trim() || '#6155f5',
+    white: cs.getPropertyValue('--white').trim() || '#fff',
   }
 }
 
 const iosPalette = computed(() => {
+  void props.theme
   const c = getThemeColors()
   return [c.blue, c.green, c.orange, c.red, c.purple, c.teal, c.pink, c.indigo]
 })
 
 const defaultOptions = computed(() => {
+  void props.theme
   const c = getThemeColors()
   const isArea = props.type === 'area'
 
   return {
     responsive: true,
     maintainAspectRatio: false,
-    animation: { duration: 350, easing: 'easeOutQuart' },
+    animation: { duration: 300, easing: 'easeOutQuart' },
     plugins: {
       legend: {
         display: true,
@@ -127,11 +138,13 @@ const defaultOptions = computed(() => {
           font: { family: c.fontFamily, size: 12 },
           padding: 16,
           usePointStyle: true,
+          pointStyle: 'circle',
           pointStyleWidth: 8,
+          pointStyleHeight: 8,
         },
       },
       tooltip: {
-        backgroundColor: 'rgba(0,0,0,0.8)',
+        backgroundColor: c.labelPrimary,
         titleFont: { family: c.fontFamily, size: 13, weight: '600' },
         bodyFont: { family: c.fontFamily, size: 12 },
         padding: 10,
@@ -163,7 +176,7 @@ const defaultOptions = computed(() => {
         radius: props.type === 'line' ? 3 : 0,
         hoverRadius: 5,
         borderWidth: 2,
-        backgroundColor: '#fff',
+        backgroundColor: c.white || '#fff',
       },
       bar: {
         borderRadius: 6,
@@ -206,5 +219,8 @@ function deepMerge(target, source) {
   position: relative;
   width: 100%;
   font-family: var(--font-family);
+  background: var(--bg-grouped-secondary);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
 }
 </style>

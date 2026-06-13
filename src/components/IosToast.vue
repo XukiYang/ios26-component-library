@@ -44,7 +44,7 @@ const { toasts, removeToast } = useToast()
   border: var(--border-hairline) solid var(--separator);
   box-shadow: var(--shadow-sm);
   pointer-events: auto;
-  transition: background-color var(--duration-slow);
+  transition: background-color var(--duration-slow) var(--ease-default);
 }
 
 /* ---- Indicator bar ------------------------------------------------------ */
@@ -90,18 +90,22 @@ const { toasts, removeToast } = useToast()
   height: var(--space-6);
   padding: 0;
   border: none;
-  border-radius: 50%;
+  border-radius: var(--radius-full);
   background: transparent;
   color: var(--label-secondary);
   font-size: var(--text-body);
   line-height: 1;
   cursor: pointer;
-  transition: background-color var(--duration-normal), color var(--duration-normal);
+  transition: background-color var(--duration-normal) var(--ease-default), color var(--duration-normal) var(--ease-default);
 }
 
 .ios-toast-close:hover {
   background-color: var(--fill-tertiary);
   color: var(--label-primary);
+}
+
+.ios-toast-close:focus-visible {
+  box-shadow: var(--focus-ring);
 }
 
 /* ---- Transitions -------------------------------------------------------- */

@@ -65,7 +65,7 @@ watch(() => props.modelValue, (show) => {
       tween(backdropRef.value, { opacity: 1, duration: DURATION.normal, ease: 'power2.out' })
       tween(sheetRef.value, {
         y: '0%',
-        duration: reducedMotion ? 0 : 0.5,
+        duration: reducedMotion ? 0 : DURATION.slow,
         ease: SPRING.ease,
       })
     })
@@ -100,7 +100,7 @@ const { isDragging: dragging, onPointerDown: onDragStart, onPointerMove: onDragM
 .ios-sheet-backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.3);
+  background: var(--backdrop-bg);
   display: flex;
   align-items: flex-end;
   z-index: 1000;
@@ -113,6 +113,7 @@ const { isDragging: dragging, onPointerDown: onDragStart, onPointerMove: onDragM
   max-height: 85vh;
   overflow-y: auto;
   background: var(--bg-primary);
+  box-shadow: var(--shadow-lg);
   transform: translateY(100%);
 }
 .ios-sheet-grabber {
@@ -124,7 +125,8 @@ const { isDragging: dragging, onPointerDown: onDragStart, onPointerMove: onDragM
 }
 .ios-sheet-header { margin-bottom: var(--space-4); }
 .ios-sheet-header h2 {
-  font: var(--type-headline);
+  font: var(--type-title3);
+  font-family: var(--font-heading);
   margin: 0;
 }
 

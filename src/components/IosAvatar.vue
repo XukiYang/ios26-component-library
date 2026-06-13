@@ -55,7 +55,7 @@ const iconSize = computed(() => {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 50%;
+  border-radius: var(--radius-full);
   background: var(--fill-secondary);
   overflow: hidden;
   flex-shrink: 0;
@@ -63,7 +63,7 @@ const iconSize = computed(() => {
 }
 
 .ios-avatar--sm { width: var(--space-7); height: var(--space-7); }
-.ios-avatar--md { width: 36px; height: 36px; }
+.ios-avatar--md { width: var(--space-8); height: var(--space-8); }
 .ios-avatar--lg { width: var(--space-12); height: var(--space-12); }
 .ios-avatar--xl { width: var(--space-16); height: var(--space-16); }
 

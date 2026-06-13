@@ -38,34 +38,28 @@ defineEmits(['click'])
   outline: none;
   border-radius: var(--radius-md);
   cursor: pointer;
-  font-family: var(--font-family);
-  font-size: var(--text-body);
+  font: var(--type-body);
   font-weight: var(--weight-semibold);
+  letter-spacing: 0.3px;
   white-space: nowrap;
   transition:
-    transform var(--duration-fast) var(--ease-spring),
-    opacity var(--duration-fast) ease-in,
-    background-color var(--duration-fast) ease-out;
+    transform var(--duration-fast) var(--ease-default),
+    opacity var(--duration-fast) var(--ease-default),
+    background-color var(--duration-fast) var(--ease-default);
   -webkit-tap-highlight-color: transparent;
   user-select: none;
 }
 .ios-btn:active:not(:disabled) {
-  animation: ios-btn-bounce var(--duration-slow) var(--ease-spring);
-  opacity: 0.7;
-}
-@keyframes ios-btn-bounce {
-  0% { transform: scale(1); }
-  40% { transform: scale(0.95); }
-  70% { transform: scale(1.02); }
-  100% { transform: scale(1); }
+  transform: scale(0.97);
+  opacity: 0.8;
 }
 .ios-btn:disabled { opacity: var(--opacity-disabled); pointer-events: none; cursor: not-allowed; }
-.ios-btn:focus-visible { outline: 2px solid var(--color-blue); outline-offset: 2px; }
+.ios-btn:focus-visible { box-shadow: var(--focus-ring); }
 
 /* Sizes */
-.ios-btn-small  { height: var(--btn-height-sm); border-radius: var(--radius-sm); padding: 0 var(--space-4); font-size: var(--text-subheadline); min-width: var(--btn-height-md); }
-.ios-btn-medium { height: var(--btn-height-md); border-radius: var(--radius-md); padding: 0 var(--space-5); min-width: var(--btn-height-md); }
-.ios-btn-large  { height: var(--btn-height-lg); border-radius: var(--radius-lg); padding: 0 var(--space-6); font-size: var(--text-callout); min-width: var(--btn-height-md); }
+.ios-btn-small  { height: var(--btn-height-sm); border-radius: var(--radius-sm); padding: 0 var(--space-4); font-size: var(--text-subheadline); min-width: var(--btn-height-md); letter-spacing: 0.2px; }
+.ios-btn-medium { height: var(--btn-height-md); border-radius: var(--radius-md); padding: 0 var(--space-5); min-width: var(--btn-height-md); letter-spacing: 0.3px; }
+.ios-btn-large  { height: var(--btn-height-lg); border-radius: var(--radius-lg); padding: 0 var(--space-6); font-size: var(--text-callout); min-width: var(--btn-height-md); letter-spacing: 0.4px; }
 
 /* Variants */
 .ios-btn-filled { background-color: var(--color-blue); color: var(--white); }
@@ -78,7 +72,7 @@ defineEmits(['click'])
 
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
-  .ios-btn { transition: opacity var(--duration-fast) ease-in, background-color var(--duration-fast) ease-out; }
-  .ios-btn:active:not(:disabled) { animation: none; opacity: 0.7; }
+  .ios-btn { transition: opacity var(--duration-fast) var(--ease-default), background-color var(--duration-fast) var(--ease-default); }
+  .ios-btn:active:not(:disabled) { opacity: 0.7; }
 }
 </style>

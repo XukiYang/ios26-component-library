@@ -1,151 +1,157 @@
 /* ==========================================================================
-   iOS 26 Design Tokens — CSS Custom Properties
-   Source: Apple iOS & iPadOS 26 Figma Community Kit
-   Port: Vue 3 Component Preview
+   Clean Premium Design Tokens
+   Aesthetic: White, crisp, minimalist — Apple-level refinement
    ========================================================================== */
 
 :root {
-  /* -- System Colors (12) ------------------------------------------------ */
-  --color-red: #ff383c;
-  --color-orange: #ff8d28;
+  /* -- System Colors (clean, refined) ------------------------------------- */
+  --color-red: #ff3b30;
+  --color-orange: #ff9500;
   --color-yellow: #ffcc00;
   --color-green: #34c759;
-  --color-mint: #00c8b3;
-  --color-teal: #00c3d0;
-  --color-cyan: #00c0e8;
-  --color-blue: #0088ff;
-  --color-indigo: #6155f5;
-  --color-purple: #cb30e0;
+  --color-mint: #00c7be;
+  --color-teal: #30b0c7;
+  --color-cyan: #32ade6;
+  --color-blue: #007aff;
+  --color-indigo: #5856d6;
+  --color-purple: #af52de;
   --color-pink: #ff2d55;
-  --color-brown: #ac7f5e;
+  --color-brown: #a2845e;
 
-  /* -- Accent (used by buttons, links, active states) -------------------- */
-  --accent-blue: #0088ff;
-  --accent-red: #ff383c;
-
-  /* -- Labels (4 levels) ------------------------------------------------- */
-  --label-primary: #000000;
+  /* -- Labels (4 levels, clean neutral grays) ------------------------------ */
+  --label-primary: #1d1d1f;
   --label-secondary: rgba(60, 60, 67, 0.6);
   --label-tertiary: rgba(60, 60, 67, 0.3);
   --label-quaternary: rgba(60, 60, 67, 0.18);
 
-  /* -- Backgrounds (6) --------------------------------------------------- */
+  /* -- Backgrounds (crisp white scale) ------------------------------------ */
   --bg-primary: #ffffff;
-  --bg-secondary: #f2f2f7;
+  --bg-secondary: #f5f5f7;
   --bg-tertiary: #ffffff;
-  --bg-grouped-primary: #f2f2f7;
+  --bg-grouped-primary: #f5f5f7;
   --bg-grouped-secondary: #ffffff;
-  --bg-grouped-tertiary: #f2f2f7;
+  --bg-grouped-tertiary: #f5f5f7;
 
-  /* -- Fills (4 levels) -------------------------------------------------- */
+  /* -- Fills (neutral) ----------------------------------------------------- */
   --fill-primary: rgba(120, 120, 128, 0.2);
   --fill-secondary: rgba(120, 120, 128, 0.16);
   --fill-tertiary: rgba(118, 118, 128, 0.12);
   --fill-quaternary: rgba(116, 116, 128, 0.08);
 
-  /* -- Grays (8) --------------------------------------------------------- */
-  --black: #000000;
-  --gray: #8e8e93;
+  /* -- Grays (cool neutral) ------------------------------------------------ */
+  --black: #1d1d1f;
+  --gray: #86868b;
   --gray-2: #aeaeb2;
   --gray-3: #c7c7cc;
   --gray-4: #d1d1d6;
   --gray-5: #e5e5ea;
-  --gray-6: #f2f2f7;
+  --gray-6: #f5f5f7;
   --white: #ffffff;
 
-  /* -- Separators -------------------------------------------------------- */
+  /* -- Separators ---------------------------------------------------------- */
   --separator-opaque: #c6c6c8;
-  --separator: rgba(0, 0, 0, 0.12);
+  --separator: rgba(0, 0, 0, 0.08);
 
-  /* -- Typography -------------------------------------------------------- */
-  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  /* -- Typography ---------------------------------------------------------- */
+  --font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --font-heading: 'Playfair Display', Georgia, 'Times New Roman', serif;
 
-  --text-large-title: 34px;
-  --text-title1: 28px;
-  --text-title2: 22px;
+  --text-large-title: 40px;
+  --text-title1: 32px;
+  --text-title2: 24px;
   --text-title3: 20px;
-  --text-headline: 17px;
-  --text-body: 17px;
-  --text-callout: 16px;
-  --text-subheadline: 15px;
+  --text-headline: 16px;
+  --text-body: 16px;
+  --text-callout: 15px;
+  --text-subheadline: 14px;
   --text-footnote: 13px;
-  --text-caption1: 12px;
-  --text-caption2: 11px;
+  --text-caption1: 11px;
+  --text-caption2: 10px;
 
-  --lh-large-title: 41px;
-  --lh-title1: 34px;
-  --lh-title2: 28px;
-  --lh-title3: 25px;
+  --lh-large-title: 48px;
+  --lh-title1: 40px;
+  --lh-title2: 32px;
+  --lh-title3: 28px;
   --lh-headline: 22px;
-  --lh-body: 22px;
-  --lh-callout: 21px;
+  --lh-body: 26px;
+  --lh-callout: 22px;
   --lh-subheadline: 20px;
   --lh-footnote: 18px;
-  --lh-caption1: 16px;
-  --lh-caption2: 13px;
+  --lh-caption1: 14px;
+  --lh-caption2: 12px;
 
-  --lh-large-title-loose: 43px;
-  --lh-title1-loose: 36px;
-  --lh-title2-loose: 30px;
-  --lh-title3-loose: 27px;
+  --lh-large-title-loose: 52px;
+  --lh-title1-loose: 44px;
+  --lh-title2-loose: 36px;
+  --lh-title3-loose: 30px;
   --lh-headline-loose: 24px;
-  --lh-body-loose: 24px;
-  --lh-callout-loose: 23px;
+  --lh-body-loose: 28px;
+  --lh-callout-loose: 24px;
 
-  --ls-large-title: 0.4px;
-  --ls-title1: 0.38px;
-  --ls-title2: -0.26px;
-  --ls-title3: -0.45px;
-  --ls-headline: -0.43px;
-  --ls-body: -0.43px;
-  --ls-callout: -0.31px;
-  --ls-subheadline: -0.23px;
-  --ls-footnote: -0.08px;
-  --ls-caption1: 0px;
-  --ls-caption2: 0.06px;
+  --ls-large-title: -0.5px;
+  --ls-title1: -0.3px;
+  --ls-title2: -0.2px;
+  --ls-title3: 0.2px;
+  --ls-headline: 0.8px;
+  --ls-body: -0.1px;
+  --ls-callout: 0px;
+  --ls-subheadline: 0.1px;
+  --ls-footnote: 0.2px;
+  --ls-caption1: 1px;
+  --ls-caption2: 1.5px;
 
+  --weight-light: 300;
   --weight-regular: 400;
   --weight-medium: 500;
   --weight-semibold: 600;
   --weight-bold: 700;
 
-  /* -- Typography shorthands (font shorthand for components) ------------- */
-  --type-large-title: var(--weight-bold) var(--text-large-title)/var(--lh-large-title) var(--font-family);
-  --type-title1: var(--weight-bold) var(--text-title1)/var(--lh-title1) var(--font-family);
-  --type-title2: var(--weight-semibold) var(--text-title2)/var(--lh-title2) var(--font-family);
+  /* -- Typography shorthands ----------------------------------------------- */
+  --type-large-title: var(--weight-semibold) var(--text-large-title)/var(--lh-large-title) var(--font-heading);
+  --type-title1: var(--weight-semibold) var(--text-title1)/var(--lh-title1) var(--font-heading);
+  --type-title2: var(--weight-medium) var(--text-title2)/var(--lh-title2) var(--font-heading);
   --type-title3: var(--weight-semibold) var(--text-title3)/var(--lh-title3) var(--font-family);
   --type-headline: var(--weight-semibold) var(--text-headline)/var(--lh-headline) var(--font-family);
   --type-body: var(--weight-regular) var(--text-body)/var(--lh-body) var(--font-family);
   --type-callout: var(--weight-regular) var(--text-callout)/var(--lh-callout) var(--font-family);
   --type-subheadline: var(--weight-regular) var(--text-subheadline)/var(--lh-subheadline) var(--font-family);
-  --type-footnote: var(--weight-regular) var(--text-footnote)/var(--lh-footnote) var(--font-family);
-  --type-caption1: var(--weight-regular) var(--text-caption1)/var(--lh-caption1) var(--font-family);
-  --type-caption2: var(--weight-regular) var(--text-caption2)/var(--lh-caption2) var(--font-family);
+  --type-footnote: var(--weight-medium) var(--text-footnote)/var(--lh-footnote) var(--font-family);
+  --type-caption1: var(--weight-semibold) var(--text-caption1)/var(--lh-caption1) var(--font-family);
+  --type-caption2: var(--weight-semibold) var(--text-caption2)/var(--lh-caption2) var(--font-family);
 
-  /* -- Motion (transition durations) ------------------------------------- */
-  --duration-fast: 0.12s;
-  --duration-normal: 0.25s;
-  --duration-slow: 0.35s;
+  /* -- Motion -------------------------------------------------------------- */
+  --duration-fast: 0.15s;
+  --duration-normal: 0.3s;
+  --duration-slow: 0.45s;
+  --duration-cinematic: 0.7s;
 
   --ease-default: cubic-bezier(0.25, 0.1, 0.25, 1);
   --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1.0);
+  --ease-editorial: cubic-bezier(0.16, 1, 0.3, 1);
 
-  /* -- Shadows ----------------------------------------------------------- */
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.06);
-  --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.04);
-  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12), 0 2px 6px rgba(0, 0, 0, 0.06);
-  --shadow-thumb: 0 2px 4px rgba(0, 0, 0, 0.3);
+  /* -- Shadows (subtle, cool, clean) --------------------------------------- */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-md:
+    0 2px 4px rgba(0, 0, 0, 0.02),
+    0 8px 16px rgba(0, 0, 0, 0.04);
+  --shadow-lg:
+    0 4px 8px rgba(0, 0, 0, 0.02),
+    0 16px 32px rgba(0, 0, 0, 0.06),
+    0 32px 64px rgba(0, 0, 0, 0.03);
+  --shadow-thumb: 0 2px 4px rgba(0, 0, 0, 0.15);
 
-  /* -- Focus ring -------------------------------------------------------- */
+  /* -- Focus ring ---------------------------------------------------------- */
   --focus-ring: inset 0 0 0 1.5px var(--color-blue);
 
-  /* -- Component backgrounds (flat) -------------------------------------- */
+  /* -- Component backgrounds ----------------------------------------------- */
   --tabbar-bg: rgba(255, 255, 255, 0.92);
   --toolbar-bg: rgba(255, 255, 255, 0.92);
-  --pill-indicator-bg-dark: rgba(255, 255, 255, 0.2);
-  --pill-indicator-bg-dark-alt: rgba(255, 255, 255, 0.27);
+  --pill-indicator-bg-dark: rgba(0, 0, 0, 0.05);
+  --pill-indicator-bg-dark-alt: rgba(0, 0, 0, 0.08);
+  --backdrop-bg: rgba(0, 0, 0, 0.4);
+  --skeleton-shimmer: rgba(255, 255, 255, 0.3);
 
-  /* -- Spacing (4px base grid) ------------------------------------------- */
+  /* -- Spacing (8px base, generous) ---------------------------------------- */
   --space-0: 0px;
   --space-1: 4px;
   --space-2: 8px;
@@ -155,11 +161,12 @@
   --space-6: 24px;
   --space-7: 28px;
   --space-8: 32px;
-  --space-10: 40px;
-  --space-12: 48px;
-  --space-16: 64px;
+  --space-10: 48px;
+  --space-12: 64px;
+  --space-16: 96px;
+  --space-20: 128px;
 
-  /* -- Radius (4px grid aligned) ----------------------------------------- */
+  /* -- Radius (refined, not bubbly) ---------------------------------------- */
   --radius-xs: 4px;
   --radius-sm: 8px;
   --radius-md: 12px;
@@ -168,42 +175,43 @@
   --radius-2xl: 24px;
   --radius-full: 9999px;
 
-  /* -- Opacity ----------------------------------------------------------- */
-  --opacity-disabled: 0.4;
+  /* -- Opacity ------------------------------------------------------------- */
+  --opacity-disabled: 0.35;
   --opacity-muted: 0.5;
-  --opacity-subtle: 0.3;
-  --opacity-hover: 0.7;
+  --opacity-subtle: 0.25;
+  --opacity-hover: 0.75;
 
-  /* -- Border ------------------------------------------------------------ */
+  /* -- Border -------------------------------------------------------------- */
   --border-hairline: 0.5px;
 
-  /* -- Component sizes --------------------------------------------------- */
-  --btn-height-sm: 32px;
-  --btn-height-md: 44px;
-  --btn-height-lg: 50px;
+  /* -- Component sizes ----------------------------------------------------- */
+  --btn-height-sm: 34px;
+  --btn-height-md: 46px;
+  --btn-height-lg: 52px;
   --toggle-width: 51px;
   --toggle-height: 31px;
   --toggle-thumb: 27px;
-  --tab-icon-size: 24px;
+  --tab-icon-size: 22px;
   --sheet-grabber-w: 36px;
-  --sheet-grabber-h: 5px;
-  --checkbox-size: 22px;
+  --sheet-grabber-h: 4px;
+  --checkbox-size: 20px;
   --badge-height: 20px;
   --stepper-btn-w: 36px;
   --stepper-btn-h: 32px;
+  --capsule-height: 36px;
 
-  /* -- Layout ------------------------------------------------------------ */
+  /* -- Layout -------------------------------------------------------------- */
   --safe-area-top: 59px;
   --safe-area-bottom: 34px;
-  --content-inset: 16px;
-  --list-row-height: 44px;
-  --toolbar-height: 44px;
-  --tabbar-height: 49px;
+  --content-inset: 20px;
+  --list-row-height: 48px;
+  --toolbar-height: 48px;
+  --tabbar-height: 52px;
   --separator-height: 0.5px;
 }
 
 /* --------------------------------------------------------------------------
-   Dark Mode
+   Dark Mode (via prefers-color-scheme)
    -------------------------------------------------------------------------- */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
@@ -220,10 +228,7 @@
     --color-pink: #ff375f;
     --color-brown: #ac8e68;
 
-    --accent-blue: #0091ff;
-    --accent-red: #ff453a;
-
-    --label-primary: #ffffff;
+    --label-primary: #f5f5f7;
     --label-secondary: rgba(235, 235, 245, 0.6);
     --label-tertiary: rgba(235, 235, 245, 0.3);
     --label-quaternary: rgba(235, 235, 245, 0.18);
@@ -247,22 +252,33 @@
     --gray-4: #3a3a3c;
     --gray-5: #2c2c2e;
     --gray-6: #1c1c1e;
-    --white: #ffffff;
+    --white: #f5f5f7;
 
     --separator-opaque: #38383a;
     --separator: rgba(84, 84, 88, 0.65);
 
-    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.24);
-    --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.32), 0 1px 2px rgba(0, 0, 0, 0.16);
-    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.48), 0 2px 6px rgba(0, 0, 0, 0.24);
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
+    --shadow-md:
+      0 2px 4px rgba(0, 0, 0, 0.15),
+      0 8px 16px rgba(0, 0, 0, 0.2);
+    --shadow-lg:
+      0 4px 8px rgba(0, 0, 0, 0.15),
+      0 16px 32px rgba(0, 0, 0, 0.25),
+      0 32px 64px rgba(0, 0, 0, 0.15);
+    --shadow-thumb: 0 2px 4px rgba(0, 0, 0, 0.4);
 
     --tabbar-bg: rgba(28, 28, 30, 0.92);
     --toolbar-bg: rgba(28, 28, 30, 0.92);
-    --pill-indicator-bg-dark: rgba(255, 255, 255, 0.2);
-    --pill-indicator-bg-dark-alt: rgba(255, 255, 255, 0.27);
+    --pill-indicator-bg-dark: rgba(255, 255, 255, 0.12);
+    --pill-indicator-bg-dark-alt: rgba(255, 255, 255, 0.18);
+    --backdrop-bg: rgba(0, 0, 0, 0.5);
+    --skeleton-shimmer: rgba(255, 255, 255, 0.08);
   }
 }
 
+/* --------------------------------------------------------------------------
+   Dark Mode (via data attribute)
+   -------------------------------------------------------------------------- */
 :root[data-theme="dark"] {
   --color-red: #ff453a;
   --color-orange: #ff9f0a;
@@ -277,10 +293,7 @@
   --color-pink: #ff375f;
   --color-brown: #ac8e68;
 
-  --accent-blue: #0091ff;
-  --accent-red: #ff453a;
-
-  --label-primary: #ffffff;
+  --label-primary: #f5f5f7;
   --label-secondary: rgba(235, 235, 245, 0.6);
   --label-tertiary: rgba(235, 235, 245, 0.3);
   --label-quaternary: rgba(235, 235, 245, 0.18);
@@ -304,17 +317,25 @@
   --gray-4: #3a3a3c;
   --gray-5: #2c2c2e;
   --gray-6: #1c1c1e;
-  --white: #ffffff;
+  --white: #f5f5f7;
 
   --separator-opaque: #38383a;
   --separator: rgba(84, 84, 88, 0.65);
 
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.24);
-  --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.32), 0 1px 2px rgba(0, 0, 0, 0.16);
-  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.48), 0 2px 6px rgba(0, 0, 0, 0.24);
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
+  --shadow-md:
+    0 2px 4px rgba(0, 0, 0, 0.15),
+    0 8px 16px rgba(0, 0, 0, 0.2);
+  --shadow-lg:
+    0 4px 8px rgba(0, 0, 0, 0.15),
+    0 16px 32px rgba(0, 0, 0, 0.25),
+    0 32px 64px rgba(0, 0, 0, 0.15);
+  --shadow-thumb: 0 2px 4px rgba(0, 0, 0, 0.4);
 
   --tabbar-bg: rgba(28, 28, 30, 0.92);
   --toolbar-bg: rgba(28, 28, 30, 0.92);
-  --pill-indicator-bg-dark: rgba(255, 255, 255, 0.2);
-  --pill-indicator-bg-dark-alt: rgba(255, 255, 255, 0.27);
+  --pill-indicator-bg-dark: rgba(255, 255, 255, 0.12);
+  --pill-indicator-bg-dark-alt: rgba(255, 255, 255, 0.18);
+  --backdrop-bg: rgba(0, 0, 0, 0.5);
+  --skeleton-shimmer: rgba(255, 255, 255, 0.08);
 }

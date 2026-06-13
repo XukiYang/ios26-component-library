@@ -69,7 +69,7 @@ watch(() => props.modelValue, (show) => {
       tween(backdropRef.value, { opacity: 1, duration: DURATION.normal, ease: 'power2.out' })
       tween(sheetRef.value, {
         y: '0%',
-        duration: reducedMotion ? 0 : 0.5,
+        duration: reducedMotion ? 0 : DURATION.slow,
         ease: SPRING.ease,
       })
     })
@@ -110,7 +110,7 @@ onUnmounted(() => {
 .ios-action-sheet-backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.4);
+  background: var(--backdrop-bg);
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -133,6 +133,7 @@ onUnmounted(() => {
   border-radius: var(--radius-xl);
   padding: var(--space-4);
   text-align: center;
+  box-shadow: var(--shadow-lg);
 }
 
 .ios-action-sheet-header h3 {
@@ -161,7 +162,7 @@ onUnmounted(() => {
   font: var(--type-body);
   color: var(--color-blue);
   cursor: pointer;
-  transition: background-color var(--duration-fast);
+  transition: background-color var(--duration-fast) var(--ease-default);
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -190,5 +191,9 @@ onUnmounted(() => {
   border-radius: var(--radius-xl);
   font-weight: var(--weight-semibold);
   color: var(--color-blue);
+}
+
+.ios-action-sheet-btn:focus-visible {
+  box-shadow: var(--focus-ring);
 }
 </style>

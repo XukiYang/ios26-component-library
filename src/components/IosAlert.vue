@@ -59,7 +59,7 @@ watch(() => props.modelValue, (show) => {
       tween(backdropRef.value, { opacity: 1, duration: DURATION.normal, ease: 'power2.out' })
       tween(alertRef.value, {
         scale: 1, opacity: 1,
-        duration: reducedMotion ? 0 : 0.4,
+        duration: reducedMotion ? 0 : DURATION.slow,
         ease: SPRING.ease,
       })
     })
@@ -88,7 +88,7 @@ function onAction(action) {
 .ios-alert-backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.4);
+  background: var(--backdrop-bg);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -97,11 +97,12 @@ function onAction(action) {
 }
 .ios-alert {
   width: 270px;
+  max-width: calc(100vw - 2 * var(--space-4));
   border-radius: var(--radius-xl);
   padding: var(--space-6);
   text-align: center;
   background: var(--bg-grouped-secondary);
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-lg);
   transform: scale(0.9);
   opacity: 0;
 }
@@ -115,7 +116,8 @@ function onAction(action) {
 }
 .ios-alert-actions :deep(.ios-btn) { flex: 1; }
 h2 {
-  font: var(--type-headline);
+  font: var(--type-title3);
+  font-family: var(--font-heading);
 }
 p {
   font: var(--type-body);

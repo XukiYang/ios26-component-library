@@ -1,11 +1,7 @@
 <template>
-  <!-- Background gradient orbs -->
+  <!-- Background: subtle warm ambient glow -->
   <div class="bg-layer">
-    <div class="orb orb-1" />
-    <div class="orb orb-2" />
-    <div class="orb orb-3" />
-    <div class="orb orb-4" />
-    <div class="orb orb-5" />
+    <div class="bg-glow" />
   </div>
 
   <!-- App Shell -->
@@ -31,9 +27,8 @@
       <template v-if="activeTab === 'preview'">
         <section class="hero">
           <div class="hero-glass">
-            <IosIcon name="apple" size="40" />
             <h1 class="text-large-title emphasized">iOS 26</h1>
-            <p class="text-title3 text-secondary">Design System Preview</p>
+            <p class="text-subheadline text-tertiary" style="letter-spacing: 3px; text-transform: uppercase; margin-top: var(--space-1);">Design System</p>
           </div>
         </section>
 
@@ -344,11 +339,11 @@
         <section class="section" style="padding-top:var(--space-2);">
           <h2 class="section-label text-footnote emphasized text-secondary">Charts</h2>
           <div class="glass-card" style="display:flex;flex-direction:column;gap:var(--space-4);">
-            <IosChart type="line" :data="lineData" height="200px" />
-            <IosChart type="bar" :data="barData" height="200px" />
+            <IosChart type="line" :data="lineData" height="200px" :theme="isDark ? 'dark' : 'light'" />
+            <IosChart type="bar" :data="barData" height="200px" :theme="isDark ? 'dark' : 'light'" />
             <div style="display:flex;gap:var(--space-4);">
-              <IosChart type="doughnut" :data="pieData" height="180px" />
-              <IosChart type="radar" :data="radarData" height="180px" />
+              <IosChart type="doughnut" :data="pieData" height="180px" :theme="isDark ? 'dark' : 'light'" />
+              <IosChart type="radar" :data="radarData" height="180px" :theme="isDark ? 'dark' : 'light'" />
             </div>
           </div>
         </section>
@@ -695,8 +690,8 @@ const pickerResult = computed(() => {
 const lineData = {
   labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
   datasets: [
-    { label: 'Revenue', data: [12, 19, 8, 15, 22, 30], borderColor: 'var(--color-blue)', backgroundColor: 'rgba(0,136,255,0.1)', fill: true },
-    { label: 'Expenses', data: [8, 11, 13, 12, 16, 18], borderColor: 'var(--color-red)', backgroundColor: 'rgba(255,56,60,0.1)', fill: true },
+    { label: 'Revenue', data: [12, 19, 8, 15, 22, 30], borderColor: 'var(--color-blue)', backgroundColor: 'color-mix(in srgb, var(--color-blue) 10%, transparent)', fill: true },
+    { label: 'Expenses', data: [8, 11, 13, 12, 16, 18], borderColor: 'var(--color-red)', backgroundColor: 'color-mix(in srgb, var(--color-red) 10%, transparent)', fill: true },
   ],
 }
 
@@ -717,8 +712,8 @@ const pieData = {
 const radarData = {
   labels: ['Speed', 'Reliability', 'Comfort', 'Safety', 'Efficiency', 'Design'],
   datasets: [
-    { label: 'Model A', data: [85, 90, 78, 92, 88, 95], borderColor: 'var(--color-blue)', backgroundColor: 'rgba(0,136,255,0.15)' },
-    { label: 'Model B', data: [70, 85, 92, 80, 75, 88], borderColor: 'var(--color-green)', backgroundColor: 'rgba(52,199,89,0.15)' },
+    { label: 'Model A', data: [85, 90, 78, 92, 88, 95], borderColor: 'var(--color-blue)', backgroundColor: 'color-mix(in srgb, var(--color-blue) 15%, transparent)' },
+    { label: 'Model B', data: [70, 85, 92, 80, 75, 88], borderColor: 'var(--color-green)', backgroundColor: 'color-mix(in srgb, var(--color-green) 15%, transparent)' },
   ],
 }
 
@@ -746,7 +741,7 @@ function onFabAction(label) {
 </script>
 
 <style>
-/* ===== Background Orbs ===== */
+/* ===== Background: subtle ambient ===== */
 .bg-layer {
   position: fixed;
   inset: 0;
@@ -754,48 +749,15 @@ function onFabAction(label) {
   pointer-events: none;
   overflow: hidden;
 }
-.orb {
+.bg-glow {
   position: absolute;
+  top: -20%;
+  right: -10%;
+  width: 40%;
+  height: 80%;
   border-radius: 50%;
-  filter: blur(80px);
-  opacity: 0.55;
-}
-.orb-1 {
-  width: 320px; height: 320px;
-  background: linear-gradient(135deg, #ff2d55, #ff8d28);
-  top: -80px; left: -60px;
-  animation: orb-drift 8s ease-in-out infinite;
-}
-.orb-2 {
-  width: 260px; height: 260px;
-  background: linear-gradient(135deg, #0088ff, #00c8b3);
-  top: 35%; right: -80px;
-  animation: orb-drift 10s ease-in-out infinite reverse;
-}
-.orb-3 {
-  width: 220px; height: 220px;
-  background: linear-gradient(135deg, #cb30e0, #6155f5);
-  bottom: 5%; left: 25%;
-  animation: orb-drift 9s ease-in-out infinite 2s;
-}
-.orb-4 {
-  width: 180px; height: 180px;
-  background: linear-gradient(135deg, #34c759, #00c8b3);
-  top: 20%; left: 40%;
-  animation: orb-drift 11s ease-in-out infinite 1s;
-}
-.orb-5 {
-  width: 240px; height: 240px;
-  background: linear-gradient(135deg, #ffcc00, #ff8d28);
-  bottom: 25%; right: 20%;
-  animation: orb-drift 7s ease-in-out infinite 3s;
-}
-
-@keyframes orb-drift {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  25% { transform: translate(15px, -20px) scale(1.08); }
-  50% { transform: translate(-10px, 15px) scale(0.94); }
-  75% { transform: translate(-18px, -8px) scale(1.04); }
+  background: radial-gradient(ellipse, color-mix(in srgb, var(--color-blue) 3%, transparent) 0%, transparent 70%);
+  filter: blur(60px);
 }
 
 /* ===== App Shell ===== */
@@ -813,7 +775,7 @@ function onFabAction(label) {
   align-items: center;
   justify-content: space-between;
   height: var(--space-12);
-  padding: 0 var(--space-4);
+  padding: 0 var(--space-6);
   flex-shrink: 0;
   z-index: 50;
   background: var(--toolbar-bg);
@@ -828,12 +790,12 @@ function onFabAction(label) {
   flex: 1;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
-  padding: 0 0 var(--space-5);
+  padding: 0 0 var(--space-6);
 }
 
 /* ===== Hero ===== */
 .hero {
-  padding: var(--space-6) var(--space-4) var(--space-4);
+  padding: var(--space-10) var(--space-4) var(--space-6);
   text-align: center;
 }
 .hero-glass {
@@ -841,21 +803,23 @@ function onFabAction(label) {
   flex-direction: column;
   align-items: center;
   gap: var(--space-1);
-  padding: var(--space-8) var(--space-12);
-  border-radius: var(--space-7);
-  background: var(--bg-grouped-secondary);
-  border: var(--separator-height) solid var(--separator);
+  padding: var(--space-10) var(--space-12);
 }
 /* ===== Sections ===== */
-.section { padding: 0 var(--space-3) var(--space-3); }
-.section-label { padding: 0 var(--space-2) var(--space-2); }
+.section { padding: 0 var(--space-4) var(--space-4); }
+.section-label {
+  padding: 0 var(--space-2) var(--space-3);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-family: var(--font-family);
+}
 
 /* ===== Materials Row ===== */
 .materials-row {
   display: flex;
-  gap: var(--space-2);
+  gap: var(--space-3);
   overflow-x: auto;
-  padding: 0 var(--space-1) var(--space-2);
+  padding: 0 var(--space-1) var(--space-3);
   scrollbar-width: none;
 }
 .materials-row::-webkit-scrollbar { display: none; }
@@ -864,8 +828,8 @@ function onFabAction(label) {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: var(--space-3) var(--space-4);
-  border-radius: var(--radius-lg);
+  padding: var(--space-3) var(--space-5);
+  border-radius: var(--radius-md);
   min-width: var(--space-16);
   min-height: var(--btn-height-md);
 }
@@ -882,20 +846,21 @@ function onFabAction(label) {
   align-items: center;
   gap: var(--space-1);
   padding: var(--space-2) var(--space-1);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-sm);
   background: var(--bg-grouped-secondary);
 }
 .color-swatch {
   width: var(--space-8); height: var(--space-8);
-  border-radius: var(--radius-sm);
-  box-shadow: inset 0 0 0 var(--border-hairline) rgba(0,0,0,0.08);
+  border-radius: var(--radius-xs);
+  box-shadow: inset 0 0 0 var(--border-hairline) var(--separator);
 }
 
 /* ===== Glass Card ===== */
 .glass-card {
-  padding: var(--space-4);
-  border-radius: var(--radius-2xl);
+  padding: var(--space-6);
+  border-radius: var(--radius-md);
   background: var(--bg-grouped-secondary);
+  border: var(--separator-height) solid var(--separator);
 }
 
 /* ===== Typography Rows ===== */
@@ -903,38 +868,43 @@ function onFabAction(label) {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-  padding: var(--space-2) 0;
+  padding: var(--space-3) 0;
   border-bottom: var(--separator-height) solid var(--separator);
 }
 .type-row:last-child { border-bottom: none; }
-.type-meta { min-width: var(--space-16); text-align: right; }
+.type-meta {
+  min-width: var(--space-16);
+  text-align: right;
+  font-family: var(--font-family);
+  letter-spacing: 1px;
+}
 
 /* ===== Button Grid ===== */
 .btn-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-2);
+  gap: var(--space-3);
   align-items: center;
 }
 .btn-cell {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--space-1);
+  gap: var(--space-2);
 }
 
 /* ===== Icon Grid ===== */
 .icon-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(var(--space-16), 1fr));
-  gap: var(--space-3);
+  gap: var(--space-4);
 }
 .icon-demo {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--space-1);
-  padding: var(--space-2) var(--space-1);
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-1);
   text-align: center;
 }
 
@@ -946,10 +916,10 @@ function onFabAction(label) {
   display: flex;
   align-items: flex-start;
   justify-content: space-around;
-  padding: var(--space-2) 0 var(--space-2);
+  padding: var(--space-2) 0 var(--space-3);
   flex-shrink: 0;
   z-index: 50;
-  margin: 0 var(--space-2) var(--space-2);
+  margin: 0 var(--space-4) var(--space-3);
   border-radius: var(--radius-xl);
   background: var(--tabbar-bg);
   border: var(--separator-height) solid var(--separator);
@@ -961,15 +931,27 @@ function onFabAction(label) {
   gap: var(--space-1);
   background: none;
   border: none;
-  color: var(--label-secondary);
+  color: var(--label-tertiary);
   cursor: pointer;
-  padding: var(--space-1) var(--space-3);
-  border-radius: var(--radius-lg);
-  transition: color var(--duration-normal);
+  padding: var(--space-2) var(--space-3) var(--space-1);
+  border-radius: var(--radius-md);
+  position: relative;
+  transition: color var(--duration-normal) var(--ease-default);
   font-family: var(--font-family);
   -webkit-tap-highlight-color: transparent;
 }
 .tab-item-custom.active { color: var(--color-blue); }
+.tab-item-custom.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 16px;
+  height: 2px;
+  border-radius: 1px;
+  background: var(--color-blue);
+}
 
 .bottom-spacer { height: var(--space-16); }
 
@@ -978,7 +960,7 @@ function onFabAction(label) {
 .tab-slide-left-leave-active,
 .tab-slide-right-enter-active,
 .tab-slide-right-leave-active {
-  transition: transform var(--duration-slow) var(--ease-default), opacity var(--duration-normal) ease;
+  transition: transform var(--duration-slow) var(--ease-editorial), opacity var(--duration-normal) var(--ease-default);
 }
 
 .tab-slide-left-enter-from {
@@ -1005,18 +987,10 @@ function onFabAction(label) {
 
 /* ===== Material chips (demo only) ===== */
 .material-chip.material-chrome {
-  background: linear-gradient(135deg, rgba(200,200,210,0.7), rgba(160,160,180,0.5));
+  background: var(--fill-primary);
 }
-.material-chip.material-thick { background: rgba(150,150,170,0.6); }
-.material-chip.material-regular { background: rgba(180,180,200,0.4); }
-.material-chip.material-thin { background: rgba(200,200,220,0.25); }
-.material-chip.material-ultrathin { background: rgba(220,220,240,0.12); }
-
-[data-theme="dark"] .material-chip.material-chrome {
-  background: linear-gradient(135deg, rgba(80,80,100,0.7), rgba(60,60,75,0.6));
-}
-[data-theme="dark"] .material-chip.material-thick { background: rgba(70,70,85,0.7); }
-[data-theme="dark"] .material-chip.material-regular { background: rgba(65,65,80,0.5); }
-[data-theme="dark"] .material-chip.material-thin { background: rgba(60,60,75,0.35); }
-[data-theme="dark"] .material-chip.material-ultrathin { background: rgba(55,55,70,0.2); }
+.material-chip.material-thick { background: var(--fill-secondary); }
+.material-chip.material-regular { background: var(--fill-tertiary); }
+.material-chip.material-thin { background: var(--fill-quaternary); }
+.material-chip.material-ultrathin { background: color-mix(in srgb, var(--fill-quaternary) 50%, transparent); }
 </style>

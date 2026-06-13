@@ -52,4 +52,22 @@ defineProps({
 .ios-list-row-leading { display: flex; align-items: center; }
 .ios-list-row-trailing { text-align: right; }
 .ios-list-row-disclosure { color: var(--label-tertiary); font-size: var(--text-body); }
+
+.ios-list-row[role="button"] {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: background-color var(--duration-fast) var(--ease-default);
+}
+
+.ios-list-row[role="button"]:hover {
+  background-color: var(--fill-quaternary);
+}
+
+.ios-list-row[role="button"]:active {
+  background-color: var(--fill-tertiary);
+}
+
+.ios-list-row[role="button"]:focus-visible {
+  box-shadow: var(--focus-ring);
+}
 </style>

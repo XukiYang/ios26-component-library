@@ -98,10 +98,8 @@ function onSelect(index) {
   background: transparent;
   color: var(--label-secondary);
   cursor: pointer;
-  font-family: var(--font-family);
-  font-size: var(--text-footnote);
-  font-weight: var(--weight-regular);
-  transition: color var(--duration-normal) ease;
+  font: var(--type-footnote);
+  transition: color var(--duration-normal) var(--ease-default);
   -webkit-tap-highlight-color: transparent;
   user-select: none;
   white-space: nowrap;

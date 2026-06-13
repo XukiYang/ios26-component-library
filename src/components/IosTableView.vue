@@ -169,7 +169,7 @@ function rowIndentStyle(item) {
   min-height: var(--list-row-height);
   padding: var(--space-2) var(--space-4);
   cursor: pointer;
-  transition: background-color var(--duration-fast) ease;
+  transition: background-color var(--duration-fast) var(--ease-default);
   -webkit-tap-highlight-color: transparent;
   user-select: none;
 }

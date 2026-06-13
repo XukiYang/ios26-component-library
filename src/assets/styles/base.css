@@ -20,9 +20,9 @@ body {
 }
 
 /* ===== Typography utilities (demo page only) ===== */
-.text-large-title { font: var(--type-large-title); }
-.text-title1 { font: var(--type-title1); }
-.text-title2 { font: var(--type-title2); }
+.text-large-title { font: var(--type-large-title); font-family: var(--font-heading); }
+.text-title1 { font: var(--type-title1); font-family: var(--font-heading); }
+.text-title2 { font: var(--type-title2); font-family: var(--font-heading); }
 .text-title3 { font: var(--type-title3); }
 .text-headline { font: var(--type-headline); }
 .text-body { font: var(--type-body); }
@@ -40,5 +40,3 @@ body {
 .text-caption2.emphasized { font-weight: var(--weight-semibold); }
 .text-secondary { color: var(--label-secondary); }
 .text-tertiary { color: var(--label-tertiary); }
-
-/* Liquid Glass utilities removed — flat design */

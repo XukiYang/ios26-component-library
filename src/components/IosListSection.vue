@@ -25,6 +25,9 @@ defineProps({
 .ios-list-section { margin-bottom: var(--space-8); }
 .ios-list-section-header {
   padding: var(--space-2) var(--space-4) var(--space-1);
+  font: var(--type-footnote);
+  font-weight: var(--weight-medium);
+  color: var(--label-secondary);
   text-transform: uppercase;
 }
 .ios-list-section-content {

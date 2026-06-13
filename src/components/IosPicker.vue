@@ -64,9 +64,9 @@ const props = defineProps({
 
 const emit = defineEmits(['update:modelValue', 'update:selectedIndices', 'confirm'])
 
-const { tween, reducedMotion, SPRING, DURATION } = useGsap()
+const { tween, gsap, reducedMotion, SPRING, DURATION } = useGsap()
 
-const ITEM_HEIGHT = 44
+const ITEM_HEIGHT = 46
 
 const visible = ref(false)
 const backdropRef = ref(null)
@@ -102,7 +102,7 @@ watch(() => props.modelValue, (show) => {
       tween(backdropRef.value, { opacity: 1, duration: DURATION.normal, ease: 'power2.out' })
       tween(pickerRef.value, {
         y: '0%',
-        duration: reducedMotion ? 0 : 0.5,
+        duration: reducedMotion ? 0 : DURATION.slow,
         ease: SPRING.ease,
       })
     })
@@ -133,7 +133,7 @@ function snapToIndex(colIdx, index) {
   if (el) {
     tween(el, {
       y: -clamped * ITEM_HEIGHT,
-      duration: reducedMotion ? 0 : 0.4,
+      duration: reducedMotion ? 0 : DURATION.slow,
       ease: SPRING.ease,
     })
   }
@@ -233,7 +233,7 @@ onUnmounted(() => {
 .ios-picker-backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.4);
+  background: var(--backdrop-bg);
   display: flex;
   align-items: flex-end;
   z-index: 1000;
@@ -245,6 +245,7 @@ onUnmounted(() => {
   background: var(--bg-primary);
   border-radius: var(--radius-xl) var(--radius-xl) 0 0;
   overflow: hidden;
+  box-shadow: var(--shadow-lg);
   transform: translateY(100%);
 }
 
@@ -276,9 +277,14 @@ onUnmounted(() => {
   font-weight: var(--weight-semibold);
 }
 
+.ios-picker-cancel:focus-visible,
+.ios-picker-done:focus-visible {
+  box-shadow: var(--focus-ring);
+}
+
 .ios-picker-wheel-container {
   display: flex;
-  height: 220px;
+  height: 230px;
   overflow: hidden;
 }
 
@@ -286,7 +292,7 @@ onUnmounted(() => {
   flex: 1;
   position: relative;
   overflow: hidden;
-  height: 220px;
+  height: 230px;
 }
 
 .ios-picker-wheel::before,
@@ -295,7 +301,7 @@ onUnmounted(() => {
   position: absolute;
   left: 0;
   right: 0;
-  height: 88px;
+  height: 92px;
   z-index: 1;
   pointer-events: none;
 }
@@ -311,7 +317,7 @@ onUnmounted(() => {
 }
 
 .ios-picker-wheel-inner {
-  padding: 88px 0;
+  padding: 92px 0;
   will-change: transform;
 }
 

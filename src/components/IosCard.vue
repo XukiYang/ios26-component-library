@@ -38,8 +38,8 @@ defineEmits(['click'])
 <style scoped>
 .ios-card {
   padding: var(--space-4);
-  border-radius: var(--radius-2xl);
-  transition: transform var(--duration-fast), box-shadow var(--duration-fast);
+  border-radius: var(--radius-md);
+  transition: transform var(--duration-fast) var(--ease-default), box-shadow var(--duration-fast) var(--ease-default);
 }
 
 .ios-card--glass {
@@ -67,7 +67,6 @@ defineEmits(['click'])
 }
 
 .ios-card--pressable:focus-visible {
-  outline: 2px solid var(--color-blue);
-  outline-offset: 2px;
+  box-shadow: var(--focus-ring);
 }
 </style>

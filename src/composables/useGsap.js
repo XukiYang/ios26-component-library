@@ -5,7 +5,7 @@ import { gsap } from 'gsap'
  * Shared motion presets — maps to tokens.css motion tokens.
  * GSAP uses seconds (not CSS strings), so these are numeric.
  */
-const DURATION = { fast: 0.12, normal: 0.25, slow: 0.35 }
+const DURATION = { fast: 0.15, normal: 0.3, slow: 0.45 }
 
 /**
  * iOS-style spring ease.

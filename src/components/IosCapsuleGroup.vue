@@ -96,7 +96,7 @@ onUnmounted(() => resizeObserver?.disconnect())
   position: relative;
   display: inline-flex;
   align-items: center;
-  height: 36px;
+  height: var(--capsule-height);
   padding: var(--space-1);
   background: var(--fill-tertiary);
   border-radius: var(--radius-full);
@@ -130,7 +130,7 @@ onUnmounted(() => resizeObserver?.disconnect())
   border-radius: var(--radius-full);
   font-family: var(--font-family);
   white-space: nowrap;
-  transition: color var(--duration-normal) ease-out;
+  transition: color var(--duration-normal) var(--ease-default);
   gap: var(--space-1);
   -webkit-tap-highlight-color: transparent;
   user-select: none;

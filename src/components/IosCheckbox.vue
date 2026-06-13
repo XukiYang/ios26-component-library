@@ -77,8 +77,8 @@ function onChange(e) {
 }
 
 .ios-checkbox-input:checked + .ios-checkbox-indicator {
-  background: var(--accent-blue);
-  border-color: var(--accent-blue);
+  background: var(--color-blue);
+  border-color: var(--color-blue);
 }
 
 .ios-checkbox-input:focus-visible + .ios-checkbox-indicator {
@@ -86,8 +86,8 @@ function onChange(e) {
 }
 
 .ios-checkbox-check {
-  width: 12px;
-  height: 10px;
+  width: 60%;
+  height: 50%;
   color: var(--white);
 }
 

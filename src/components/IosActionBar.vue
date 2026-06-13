@@ -84,13 +84,17 @@ function select(id) {
   cursor: pointer;
   user-select: none;
   -webkit-user-select: none;
-  transition: background-color var(--duration-fast) ease, transform var(--duration-fast) ease;
+  transition: background-color var(--duration-fast) var(--ease-default), transform var(--duration-fast) var(--ease-default);
   -webkit-tap-highlight-color: transparent;
 }
 
 .ios-action-bar-item:active {
   background-color: var(--fill-secondary);
   transform: scale(0.98);
+}
+
+.ios-action-bar-item:focus-visible {
+  box-shadow: var(--focus-ring);
 }
 
 .ios-action-bar-item:hover {
@@ -111,7 +115,7 @@ function select(id) {
   line-height: 1;
   flex-shrink: 0;
   color: var(--label-primary);
-  transition: color var(--duration-normal) ease;
+  transition: color var(--duration-normal) var(--ease-default);
 }
 
 .ios-action-bar-icon.ios-action-bar-item--active {
@@ -123,7 +127,7 @@ function select(id) {
   flex: 1;
   font: var(--type-body);
   color: var(--label-primary);
-  transition: color var(--duration-normal) ease;
+  transition: color var(--duration-normal) var(--ease-default);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

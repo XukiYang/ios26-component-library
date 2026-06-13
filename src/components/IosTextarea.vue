@@ -64,7 +64,7 @@ function onInput(e) {
 .ios-textarea-label {
   font: var(--type-subheadline);
   color: var(--label-secondary);
-  transition: color var(--duration-normal) ease;
+  transition: color var(--duration-normal) var(--ease-default);
 }
 
 .ios-textarea-focused .ios-textarea-label {
@@ -83,7 +83,7 @@ function onInput(e) {
   resize: vertical;
   min-height: 80px;
   box-shadow: inset 0 0 0 0 transparent;
-  transition: box-shadow var(--duration-normal) ease;
+  transition: box-shadow var(--duration-normal) var(--ease-default);
 }
 
 .ios-textarea-focused .ios-textarea {

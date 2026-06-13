@@ -80,7 +80,7 @@ function increment() {
   background: transparent;
   color: var(--color-blue);
   cursor: pointer;
-  transition: background-color var(--duration-fast);
+  transition: background-color var(--duration-fast) var(--ease-default);
   -webkit-tap-highlight-color: transparent;
   padding: 0;
 }
@@ -99,7 +99,7 @@ function increment() {
 }
 
 .ios-stepper-value {
-  min-width: 44px;
+  min-width: var(--stepper-btn-w);
   text-align: center;
   font: var(--type-body);
   font-weight: var(--weight-medium);

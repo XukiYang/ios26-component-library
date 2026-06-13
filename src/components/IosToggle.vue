@@ -50,7 +50,7 @@ watch(() => props.modelValue, (checked) => {
     ease: 'power2.out',
   })
   tween(thumbRef.value, {
-    x: checked ? 20 : 0,
+    x: checked ? 22 : 0,
     duration: d,
     ease: SPRING_TIGHT.ease,
   })
@@ -84,13 +84,14 @@ function onToggle() {
   padding: 0;
 }
 .ios-toggle.ios-checked { background-color: var(--color-green); }
+.ios-toggle:disabled { opacity: var(--opacity-disabled); cursor: not-allowed; pointer-events: none; }
 .ios-toggle-thumb {
   position: absolute;
-  top: var(--space-1);
-  left: var(--space-1);
+  top: 2px;
+  left: 2px;
   width: var(--toggle-thumb);
   height: var(--toggle-thumb);
-  border-radius: 50%;
+  border-radius: var(--radius-full);
   background-color: var(--white);
   box-shadow: var(--shadow-sm);
 }

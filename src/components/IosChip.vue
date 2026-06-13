@@ -38,7 +38,7 @@ defineProps({
   cursor: default;
   user-select: none;
   -webkit-tap-highlight-color: transparent;
-  transition: all var(--duration-normal);
+  transition: all var(--duration-normal) var(--ease-default);
   white-space: nowrap;
 }
 

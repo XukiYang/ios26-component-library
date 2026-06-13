@@ -72,7 +72,7 @@ function onInput(e) {
   -webkit-appearance: none;
   width: var(--space-7);
   height: var(--space-7);
-  border-radius: 50%;
+  border-radius: var(--radius-full);
   background: var(--white);
   box-shadow: var(--shadow-thumb);
   cursor: pointer;

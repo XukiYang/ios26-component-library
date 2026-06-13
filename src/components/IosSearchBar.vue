@@ -84,7 +84,7 @@ function onCancel() {
   border-radius: var(--radius-lg);
   padding: 0 var(--space-3);
   box-shadow: inset 0 0 0 0 transparent;
-  transition: box-shadow var(--duration-normal) ease;
+  transition: box-shadow var(--duration-normal) var(--ease-default);
 }
 
 .ios-searchbar-focused .ios-searchbar-field {
@@ -97,8 +97,7 @@ function onCancel() {
   padding: var(--space-3) 0;
   outline: none;
   color: var(--label-primary);
-  font-family: var(--font-family);
-  font-size: var(--text-body);
+  font: var(--type-body);
 }
 .ios-searchbar-cancel {
   background: none;
@@ -107,7 +106,10 @@ function onCancel() {
   cursor: pointer;
   white-space: nowrap;
   padding: 0;
-  font-family: var(--font-family);
-  font-size: var(--text-subheadline);
+  font: var(--type-subheadline);
+}
+
+.ios-searchbar-cancel:focus-visible {
+  box-shadow: var(--focus-ring);
 }
 </style>

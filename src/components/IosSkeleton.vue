@@ -55,7 +55,7 @@ const style = computed(() => ({
 }
 
 .ios-skeleton--circle {
-  border-radius: 50%;
+  border-radius: var(--radius-full);
 }
 
 .ios-skeleton--rect {
@@ -73,7 +73,7 @@ const style = computed(() => ({
   background: linear-gradient(
     90deg,
     transparent 0%,
-    rgba(255, 255, 255, 0.3) 50%,
+    var(--skeleton-shimmer) 50%,
     transparent 100%
   );
   animation: ios-skeleton-shimmer 1.5s infinite;

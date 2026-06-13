@@ -122,7 +122,7 @@ onBeforeUnmount(() => document.removeEventListener('mousedown', handleClickOutsi
   color: var(--label-primary);
   background: var(--fill-tertiary);
   outline: none;
-  transition: box-shadow var(--duration-normal) ease;
+  transition: box-shadow var(--duration-normal) var(--ease-default);
 }
 
 .ios-tag-input-field:focus {
@@ -156,7 +156,7 @@ onBeforeUnmount(() => document.removeEventListener('mousedown', handleClickOutsi
   font-size: var(--text-subheadline);
   color: var(--label-primary);
   cursor: pointer;
-  transition: background-color var(--duration-fast);
+  transition: background-color var(--duration-fast) var(--ease-default);
 }
 
 .ios-tag-input-option:hover,

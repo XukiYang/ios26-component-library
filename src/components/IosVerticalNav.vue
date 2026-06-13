@@ -65,7 +65,7 @@ function onSelect(item) {
 .ios-vertical-nav {
   display: flex;
   flex-direction: column;
-  width: 220px;
+  width: min(220px, 100vw);
   min-height: 100vh;
   background: var(--bg-grouped-secondary);
   border-right: var(--separator-height) solid var(--separator);
@@ -104,7 +104,7 @@ function onSelect(item) {
   font: var(--type-subheadline);
   text-decoration: none;
   cursor: pointer;
-  transition: background-color var(--duration-fast), color var(--duration-fast);
+  transition: background-color var(--duration-fast) var(--ease-default), color var(--duration-fast) var(--ease-default);
   border-left: 3px solid transparent;
   margin-bottom: var(--space-1);
 }
@@ -112,6 +112,10 @@ function onSelect(item) {
 .ios-vertical-nav-item:hover {
   background: var(--fill-quaternary);
   color: var(--label-primary);
+}
+
+.ios-vertical-nav-item:focus-visible {
+  box-shadow: var(--focus-ring);
 }
 
 .ios-vertical-nav-item--active {

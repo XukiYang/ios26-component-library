@@ -166,9 +166,10 @@ function goTo(page) {
   font-size: var(--text-subheadline);
   font-weight: var(--weight-medium);
   cursor: pointer;
-  transition: background-color var(--duration-normal), color var(--duration-normal), opacity var(--duration-normal);
+  transition: background-color var(--duration-normal) var(--ease-default), color var(--duration-normal) var(--ease-default), opacity var(--duration-normal) var(--ease-default);
   -webkit-tap-highlight-color: transparent;
 }
+.ios-pagination-btn:focus-visible { box-shadow: var(--focus-ring); }
 
 .ios-pagination-btn:hover:not(.ios-pagination-active):not(.ios-pagination-disabled) {
   background-color: var(--fill-secondary);
@@ -185,7 +186,7 @@ function goTo(page) {
 }
 
 .ios-pagination-btn.ios-pagination-disabled {
-  opacity: var(--opacity-subtle);
+  opacity: var(--opacity-disabled);
   cursor: not-allowed;
   pointer-events: none;
 }

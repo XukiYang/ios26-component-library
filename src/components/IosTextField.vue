@@ -78,7 +78,7 @@ function onClear() {
   padding: 0 var(--space-3);
   gap: var(--space-2);
   box-shadow: inset 0 0 0 0 transparent;
-  transition: box-shadow var(--duration-normal) ease;
+  transition: box-shadow var(--duration-normal) var(--ease-default);
 }
 
 .ios-textfield-focused .ios-textfield-input-wrapper {
@@ -97,14 +97,13 @@ function onClear() {
   padding: var(--space-3) 0;
   outline: none;
   color: var(--label-primary);
-  font-family: var(--font-family);
-  font-size: var(--text-body);
+  font: var(--type-body);
 }
 
 .ios-textfield-label {
   font: var(--type-subheadline);
   color: var(--label-secondary);
-  transition: color var(--duration-normal) ease;
+  transition: color var(--duration-normal) var(--ease-default);
 }
 
 .ios-textfield-focused .ios-textfield-label {
@@ -118,12 +117,12 @@ function onClear() {
   width: var(--space-5);
   height: var(--space-5);
   border: none;
-  border-radius: 50%;
+  border-radius: var(--radius-full);
   background: var(--fill-tertiary);
   cursor: pointer;
   padding: 0;
   flex-shrink: 0;
   color: var(--label-secondary);
-  transition: opacity var(--duration-normal) ease;
+  transition: opacity var(--duration-normal) var(--ease-default);
 }
 </style>
